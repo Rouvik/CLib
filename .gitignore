@@ -1,0 +1,11 @@
+# ignore the binaries
+**/*.exe
+
+# Ignore the clib_list_base_type.h thats only for my debug builds
+clib/clib_list_base_type.h
+
+# Ignore the useless .vscode crap
+.vscode
+
+# Ignore the Makefile for this project, its not needed
+Makefile
