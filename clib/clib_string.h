@@ -316,4 +316,58 @@ void CLib_String_tokenizer(CLib_String *original, CLib_String *prevToken, const 
     prevToken->len = len;
 }
 
+/**
+ * @brief Returns a CLib_String view of the substring part of the provided CLIB_String *str
+ *        this view shares the same memory as *str and *may or may not be null terminated*
+ *        must be used in tandem with the .len member of CLib_String, to mark it as a view,
+ *        the .buf_len parameter of CLib_String is set to 0 @n
+ *        <b>Note: The returned CLib_String (view) `must not be freed` with CLib_String_deinit() calls, as it shares memory with *str</b>
+ * 
+ * @param str The CLib_String to extract the substring from
+ * @param start The start location of the substring
+ * @param length The length of the substring
+ * @return CLib_String The CLib_String(view, ie. .buf_len = 0, read above) containing the pointer to appropriate string and its length
+ */
+CLib_String CLib_String_substrView(CLib_String *str, unsigned int start, unsigned int length)
+{
+    if (start > str->len)
+    {
+        return (CLib_String){NULL, 0, 0};
+    }
+    
+    return (CLib_String){.str = str->str + start, .len = length, .buf_len = 0};
+}
+
+/**
+ * @brief Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart
+ *        CLib_String_substrView(), this must be freed with a call to CLib_String_deinit() call
+ * 
+ * @param str The CLib_String to extract the substring from
+ * @param start The start location of the substring
+ * @param length The length of the substring
+ * @return CLib_String The CLib_String containing the substring and its length, must be freed with a call to CLib_String_deinit(&substr)
+ */
+CLib_String CLib_String_substr(CLib_String *str, unsigned int start, unsigned int length)
+{
+    if (start + length >= str->len)
+    {
+        return (CLib_String){NULL, 0, 0};
+    }
+    
+    int chunks = length / CLIB_BUF_CHUNK;
+    if (length % CLIB_BUF_CHUNK)
+    {
+        chunks++;
+    }
+    
+    CLib_String substr;
+    substr.buf_len = chunks * CLIB_BUF_CHUNK;
+    substr.str = (char *)malloc(substr.buf_len);
+    memcpy(substr.str, str->str + start, length);
+    *(substr.str + length) = '\0';
+    substr.len = length;
+
+    return substr;
+}
+
 #endif // INCLUDED_CLIB_STRING
