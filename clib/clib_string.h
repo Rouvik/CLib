@@ -156,10 +156,7 @@ CLib_String *CLib_String_concat(CLib_String *str1, CLib_String *str2)
         }
 
         str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        char *newMem = (char *)malloc(str1->buf_len);
-        memcpy(newMem, str1->str, str1->len + 1);
-        free(str1->str); // delete the orginal and assign new
-        str1->str = newMem;
+        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     memcpy((str1->str + str1->len), str2->str, str2->len + 1); // assumes str1 has enough space
@@ -179,7 +176,7 @@ CLib_String *CLib_String_concat(CLib_String *str1, CLib_String *str2)
 CLib_String *CLib_String_concatCStr(CLib_String *str1, const char *str2)
 {
     int len2 = strlen(str2);
-    int max_len = str1->len + len2;
+    int max_len = str1->len + len2 + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
         int chunk_count = max_len / CLIB_BUF_CHUNK;
@@ -189,10 +186,7 @@ CLib_String *CLib_String_concatCStr(CLib_String *str1, const char *str2)
         }
 
         str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        char *newMem = (char *)malloc(str1->buf_len);
-        memcpy(newMem, str1->str, str1->len);
-        free(str1->str); // delete the orginal and assign new
-        str1->str = newMem;
+        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     memcpy((str1->str + str1->len), str2, len2 + 1); // assumes str1 has enough space
@@ -213,7 +207,7 @@ CLib_String *CLib_String_concatCStr(CLib_String *str1, const char *str2)
  */
 CLib_String *CLib_String_concatN(CLib_String *str1, CLib_String *str2, int count)
 {
-    int max_len = str1->len + str2->len + 2;
+    int max_len = str1->len + count + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
         int chunk_count = max_len / CLIB_BUF_CHUNK;
@@ -223,22 +217,19 @@ CLib_String *CLib_String_concatN(CLib_String *str1, CLib_String *str2, int count
         }
 
         str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        char *newMem = (char *)malloc(str1->buf_len);
-        memcpy(newMem, str1->str, str1->len + 1);
-        free(str1->str); // delete the orginal and assign new
-        str1->str = newMem;
+        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < str2->len)
     {
         memcpy((str1->str + str1->len), str2->str, count); // assumes str1 has enough space
-        *(str1->str + str1->len + count + 1) = '\0'; // make sure it is null terminated
+        *(str1->str + str1->len + count) = '\0'; // make sure it is null terminated
         str1->len += count; // assign the new len
     }
     else
     {
         memcpy((str1->str + str1->len), str2->str, str2->len); // assumes str1 has enough space
-        *(str1->str + str1->len + str2->len + 1) = '\0'; // make sure it is null terminated
+        *(str1->str + str1->len + str2->len) = '\0'; // make sure it is null terminated
         str1->len += str2->len; // assign the new len
     }
 
@@ -257,7 +248,7 @@ CLib_String *CLib_String_concatN(CLib_String *str1, CLib_String *str2, int count
 CLib_String *CLib_String_concatCStrN(CLib_String *str1, char *str2, int count)
 {
     int len2 = strlen(str2);
-    int max_len = str1->len + len2;
+    int max_len = str1->len + count + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
         int chunk_count = max_len / CLIB_BUF_CHUNK;
@@ -267,41 +258,23 @@ CLib_String *CLib_String_concatCStrN(CLib_String *str1, char *str2, int count)
         }
 
         str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        char *newMem = (char *)malloc(str1->buf_len);
-        memcpy(newMem, str1->str, str1->len);
-        free(str1->str); // delete the orginal and assign new
-        str1->str = newMem;
+        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < len2)
     {
         memcpy((str1->str + str1->len), str2, count); // assumes str1 has enough space
-        *(str1->str + str1->len + count + 1) = '\0'; // make sure it is null terminated
+        *(str1->str + str1->len + count) = '\0'; // make sure it is null terminated
         str1->len += count; // assign the new len
     }
     else
     {
         memcpy((str1->str + str1->len), str2, len2); // assumes str1 has enough space
-        *(str1->str + str1->len + len2 + 1) = '\0'; // make sure it is null terminated
+        *(str1->str + str1->len + len2) = '\0'; // make sure it is null terminated
         str1->len += len2; // assign the new len
     }
 
     return str1; // return the str1 reference
-}
-
-inline int isDelim(char ch, char *delim)
-{
-    while (*delim != '\0')
-    {
-        if (ch == *delim)
-        {
-            return 1;
-        }
-
-        delim++;
-    }
-
-    return 0;
 }
 
 /**
