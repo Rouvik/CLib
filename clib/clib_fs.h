@@ -27,7 +27,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     DWORD err = GetLastError();                                                                                                                                                                   \
     LPSTR buffer = NULL;                                                                                                                                                                          \
     FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, err, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR) & buffer, 0, NULL); \
-    printf("Windows Error Msg: %s\n", buffer);                                                                                                                                                    \
+    fprintf(stderr, "Windows Error Msg: %s\n", buffer);                                                                                                                                                    \
     LocalFree(buffer);
 
 #include <windows.h>
