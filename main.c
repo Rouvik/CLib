@@ -1,19 +1,23 @@
 #include <stdio.h>
 
-#include "clib/clib_string.h"
-#include "clib/clib_fs.h"
+#include "clib/clib_vector_base_type.h"
 
 int main()
 {
-    CLib_String contents = CLib_String_init("");
-    if(CLib_Fs_readFile("./clib/clib_fs.h", &contents))
+    CLib_Vector_t vector = CLib_Vector_init();
+    CLib_Vector_pushBack(&vector, 5);
+    CLib_Vector_pushBack(&vector, 4);
+    CLib_Vector_pushBack(&vector, 3);
+    CLib_Vector_pushBack(&vector, 2);
+    CLib_Vector_pushBack(&vector, 1);
+
+    for (int i = 0; i < vector.size; i++)
     {
-        fprintf(stderr, "Error failed to read file\n");
-        return 1;
+        printf("Element: %d\n", vector.data[i]);
     }
 
-    printf("Output: \"%s\"\n", contents.str);
+    printf("DEBUG: Size: %d, Reserved: %d\n",vector.size, vector.reserved);
 
-    CLib_String_deinit(&contents);
+    CLib_Vector_deinit(&vector);
     return 0;
 }
