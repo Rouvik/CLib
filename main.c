@@ -1,28 +1,19 @@
 #include <stdio.h>
-#include <limits.h>
 
-#include "clib/clib_list.h"
-
-CLib_List_setup(int, INT_MIN)
+#include "clib/clib_string.h"
+#include "clib/clib_fs.h"
 
 int main()
 {
-    CLib_List_int_Root list = CLib_List_int_init(1);
-
-    CLib_List_int_pushBack(&list, 2);
-    CLib_List_int_pushBack(&list, 3);
-    CLib_List_int_pushBack(&list, 4);
-    CLib_List_int_pushBack(&list, 5);
-
-    CLib_List_int_insert(&list, 9, 2);
-
-    CLib_List_int_t *node = list.root;
-    for (int i = 0; i < list.size; i++)
+    CLib_String contents = CLib_String_init("");
+    if(CLib_Fs_readFile("./clib/clib_fs.h", &contents))
     {
-        printf("%d\n", node->data);
-        node = node->next;
+        fprintf(stderr, "Error failed to read file\n");
+        return 1;
     }
-    
-    CLib_List_int_deinit(&list);
+
+    printf("Output: \"%s\"\n", contents.str);
+
+    CLib_String_deinit(&contents);
     return 0;
 }

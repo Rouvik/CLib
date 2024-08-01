@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "clib_string.h"
 
@@ -21,6 +22,13 @@
 CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const char *delim);
 
 #ifdef _WIN32 // systems with win api
+
+#define PRINT_LAST_ERROR                                                                                                                                                                          \
+    DWORD err = GetLastError();                                                                                                                                                                   \
+    LPSTR buffer = NULL;                                                                                                                                                                          \
+    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, err, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR) & buffer, 0, NULL); \
+    printf("Windows Error Msg: %s\n", buffer);                                                                                                                                                    \
+    LocalFree(buffer);
 
 #include <windows.h>
 
@@ -46,6 +54,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     if ((hFind = FindFirstFileA(cpyPath, &fdFile)) == INVALID_HANDLE_VALUE)
     {
         fprintf(stderr, "[CBuilder FS Error] Failed to open path %s\n", cpyPath);
+        PRINT_LAST_ERROR
         CLib_String_deinit(&output);
         return (CLib_String){NULL, 0, 0};
     }
@@ -74,11 +83,63 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     return output;
 }
 
+bool CLib_Fs_readFile(const char *path, CLib_String *str)
+{
+    char chunk[CLIB_BUF_CHUNK];
+    HANDLE hFile = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+    if (hFile == INVALID_HANDLE_VALUE)
+    {
+        PRINT_LAST_ERROR
+        return true;
+    }
+
+    LARGE_INTEGER size;
+    if (!GetFileSizeEx(hFile, &size))
+    {
+        PRINT_LAST_ERROR
+        CloseHandle(hFile);
+        return true;
+    }
+
+    div_t divValue = div(size.QuadPart, CLIB_BUF_CHUNK);
+
+    for (int i = 0; i < divValue.quot; i++)
+    {
+        if (!ReadFile(hFile, chunk, CLIB_BUF_CHUNK, NULL, NULL))
+        {
+            PRINT_LAST_ERROR
+            CloseHandle(hFile);
+            return true;
+        }
+
+        CLib_String_concatCStr(str, chunk);
+    }
+
+    if (divValue.rem)
+    {
+        char remainder[divValue.rem];
+        if (!ReadFile(hFile, remainder, divValue.rem, NULL, NULL))
+        {
+            PRINT_LAST_ERROR
+            CloseHandle(hFile);
+            return true;
+        }
+
+        CLib_String_concatCStr(str, remainder);
+    }
+
+    CloseHandle(hFile);
+
+    return false; // success
+}
+
 #elif defined(__linux__) || defined(__APPLE__) || defined(__MACH__) // systems supporting dirent.h
 
 #include <dirent.h>
 #include <sys/stat.h>
 #include <errno.h>
+
 CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const char *delim)
 {
     if (mask[0] == '/') // if first character is / then ignore
@@ -93,7 +154,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     dir = opendir(path);
     if (!dir)
     {
-        fprintf(stderr, "[CBuilder FS Error] %s\n", strerror(errno));
+        fprintf(stderr, "[CBuilder FS Error] Failed to open directory: %s\n", strerror(errno));
         return (CLib_String){NULL, 0, 0}; // return nothing
     }
 
@@ -121,7 +182,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
             fileExt = dirEntry->d_name + dirLen;
             fileNameLen = dirLen;
         }
-        
+
         char *fileName;
         if (fileExt == dirEntry->d_name + 1)
         {
@@ -133,7 +194,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
             memcpy(fileName, dirEntry->d_name, fileNameLen);
             fileName[fileNameLen] = '\0';
         }
-        
+
         int maskLen = strlen(mask);
         if (mask[0] != '*' && strncmp(mask, fileName, fileNameLen - 1))
         {
@@ -161,6 +222,41 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     closedir(dir); // cleanup
 
     return output;
+}
+
+bool CLib_Fs_readFile(const char *path, CLib_String *str)
+{
+    char chunk[CLIB_BUF_CHUNK];
+    FILE *file = fopen(path, "rb");
+
+    if (!file)
+    {
+        fprintf(stderr, "[CBuilder FS Error] Failed to open file: %s\n", strerror(errno));
+        return true; // error
+    }
+
+    fseek(file, 0L, SEEK_END);
+    long long length = ftell(file);
+    rewind(file);
+
+    div_t divValue = div(length, CLIB_BUF_CHUNK);
+
+    for (int i = 0; i < divValue.quot; i++)
+    {
+        fread(chunk, CLIB_BUF_CHUNK, 1, file);
+        CLib_String_concatCStr(str, chunk);
+    }
+
+    if (divValue.rem)
+    {
+        char residual[divValue.rem];
+        fread(residual, divValue.rem, 1, file);
+        CLib_String_concatCStr(str, residual);
+    }
+
+    fclose(file);
+
+    return false; // success
 }
 
 #else // unsupported system

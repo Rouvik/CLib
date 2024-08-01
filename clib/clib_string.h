@@ -41,8 +41,9 @@ CLib_String CLib_String_init(const char *src)
     }
     else
     {
-        count = len / CLIB_BUF_CHUNK;
-        if (len % CLIB_BUF_CHUNK) // allocate extra for spill
+        div_t divValue = div(len, CLIB_BUF_CHUNK);
+        count = divValue.quot;
+        if (divValue.rem) // allocate extra for spill
         {
             count++;
         }
@@ -74,8 +75,9 @@ CLib_String CLib_String_initN(const char *src, int len)
     }
     else
     {
-        count = len / CLIB_BUF_CHUNK;
-        if (len % CLIB_BUF_CHUNK) // allocate extra for spill
+        div_t divValue = div(len, CLIB_BUF_CHUNK);
+        count = divValue.quot;
+        if (divValue.rem) // allocate extra for spill
         {
             count++;
         }
@@ -149,14 +151,14 @@ CLib_String *CLib_String_concat(CLib_String *str1, CLib_String *str2)
     int max_len = str1->len + str2->len + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
-        int chunk_count = max_len / CLIB_BUF_CHUNK;
-        if (max_len % CLIB_BUF_CHUNK) // allocate extra chunk for spill
+        div_t divValue = div(max_len, CLIB_BUF_CHUNK);
+        if (divValue.rem) // allocate extra chunk for spill
         {
-            chunk_count++;
+            divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->str = (char *) realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     memcpy((str1->str + str1->len), str2->str, str2->len + 1); // assumes str1 has enough space
@@ -179,14 +181,14 @@ CLib_String *CLib_String_concatCStr(CLib_String *str1, const char *str2)
     int max_len = str1->len + len2 + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
-        int chunk_count = max_len / CLIB_BUF_CHUNK;
-        if (max_len % CLIB_BUF_CHUNK) // allocate extra chunk for spill
+        div_t divValue = div(max_len, CLIB_BUF_CHUNK);
+        if (divValue.rem) // allocate extra chunk for spill
         {
-            chunk_count++;
+            divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     memcpy((str1->str + str1->len), str2, len2 + 1); // assumes str1 has enough space
@@ -210,14 +212,14 @@ CLib_String *CLib_String_concatN(CLib_String *str1, CLib_String *str2, int count
     int max_len = str1->len + count + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
-        int chunk_count = max_len / CLIB_BUF_CHUNK;
-        if (max_len % CLIB_BUF_CHUNK) // allocate extra chunk for spill
+        div_t divValue = div(max_len, CLIB_BUF_CHUNK);
+        if (divValue.rem) // allocate extra chunk for spill
         {
-            chunk_count++;
+            divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < str2->len)
@@ -251,14 +253,14 @@ CLib_String *CLib_String_concatCStrN(CLib_String *str1, char *str2, int count)
     int max_len = str1->len + count + 2;
     if (str1->buf_len < max_len) // not enough size, first allocate memory for concat [+2 for \0 chars]
     {
-        int chunk_count = max_len / CLIB_BUF_CHUNK;
-        if (max_len % CLIB_BUF_CHUNK) // allocate extra chunk for spill
+        div_t divValue = div(max_len, CLIB_BUF_CHUNK);
+        if (divValue.rem) // allocate extra chunk for spill
         {
-            chunk_count++;
+            divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * chunk_count; // set new buf_len
-        str1->str = realloc(str1->str, str1->buf_len); // allocate more memory
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < len2)
@@ -354,14 +356,14 @@ CLib_String CLib_String_substr(CLib_String *str, unsigned int start, unsigned in
         return (CLib_String){NULL, 0, 0};
     }
     
-    int chunks = length / CLIB_BUF_CHUNK;
-    if (length % CLIB_BUF_CHUNK)
+    div_t divValue = div(length, CLIB_BUF_CHUNK);
+    if (divValue.rem)
     {
-        chunks++;
+        divValue.quot++;
     }
     
     CLib_String substr;
-    substr.buf_len = chunks * CLIB_BUF_CHUNK;
+    substr.buf_len = divValue.quot * CLIB_BUF_CHUNK;
     substr.str = (char *)malloc(substr.buf_len);
     memcpy(substr.str, str->str + start, length);
     *(substr.str + length) = '\0';
