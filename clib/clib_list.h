@@ -20,7 +20,7 @@
 
 #include <stdlib.h>
 
-#define CLib_List_setup(TYPE, ERROR_VALUE)                                                       \
+#define CLIB_LIST_SETUP(TYPE, ERROR_VALUE)                                                       \
     typedef struct CLib_List_##TYPE                                                              \
     {                                                                                            \
         TYPE data;                                                                               \

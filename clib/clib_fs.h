@@ -113,7 +113,7 @@ bool CLib_Fs_readFile(const char *path, CLib_String *str)
         return true;
     }
 
-    div_t divValue = div(size.QuadPart, CLIB_BUF_CHUNK);
+    lldiv_t divValue = lldiv(size.QuadPart, CLIB_BUF_CHUNK);
 
     for (int i = 0; i < divValue.quot; i++)
     {
