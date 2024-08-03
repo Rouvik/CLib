@@ -29,6 +29,10 @@
     #define CLIB_BUF_CHUNK (256)
 #endif // CLIB_BUF_CHUNK
 
+/**
+ * @brief Container to store the dynamic string ptr, length and buffer length @n
+ *        Note: Do not edit any contents of CLib_String struct, especially the buf_len content, it is required to safely free memory
+ */
 typedef struct
 {
     char *str;   // heap allocated string

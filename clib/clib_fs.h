@@ -27,18 +27,63 @@
 
 #include "clib_string.h"
 
-#define CLIB_FS_DIRMODE_FILES 1
-#define CLIB_FS_DIRMODE_FOLDERS 1 << 1
+#define CLIB_FS_DIRMODE_FILES (1)
+#define CLIB_FS_DIRMODE_FOLDERS (1 << 1)
 
+// definitions
+/**
+ * @brief Opens a directory and prints its list of files and folders seperated by delim to a CLib_String and returns it @n
+ *        Note: The returned CLib_String must be freed with CLib_String_deinit()
+ * 
+ * @param path The path to the directory to open
+ * @param mask The file mask to filter through while writing, Examples: *.*(all files and folders), *.txt(all text), main.*(all files with name main like main.c, main.exe, main.s ...)
+ * @param mode The mode to use when looking for files, possible modes are CLIB_FS_DIRMODE_FILES and CLIB_FS_DIRMODE_FOLDERS, can be OR ed to get both files and folders
+ * @param delim The delimeter to append between file and folder names when writing
+ * @return CLib_String The CLib_String containing list of files and folders seperated by const char *delim
+ */
 CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const char *delim);
 
-#ifdef _WIN32 // systems with win api
+/**
+ * @brief Reads a file into a CLib_String *str
+ * 
+ * @param path The path of file to read from
+ * @param str The CLib_String to read to, must be initialised with CLib_String_init()
+ * @return true If the call FAILS and opening or reading file didnot suceed, the CLib_String is usually in a corrupted state in this situation and must be freed with CLib_String_deinit()
+ * @return false If the call suceeds
+ */
+bool CLib_Fs_readFile(const char *path, CLib_String *str);
+
+/**
+ * @brief Synchronously writes a CLib_String to a file specified by const char *path
+ * 
+ * @param path The path of the file including file name to write to
+ * @param contents The CLib_String containing the contents to write from
+ * @param append If set to true, the contents are appended to file else content is overwritten on file
+ * @return true If the call fails and error is printed to stderr
+ * @return false If call suceeds and file is written
+ */
+bool CLib_Fs_writeFile(const char *path, CLib_String *contents, bool append);
+
+
+/**
+ * @brief Synchronously writes a const char* to a file specified by const char *path
+ * 
+ * @param path The path of the file including file name to write to
+ * @param contents The CLib_String containing the contents to write from
+ * @param length The length of the string contents to write, <b>If set to 0 then length is determined automatically</b>
+ * @param append If set to true, the contents are appended to file else content is overwritten on file
+ * @return true If the call fails and error is printed to stderr
+ * @return false If call suceeds and file is written
+ */
+bool CLib_Fs_writeFileCStr(const char *path, const char *contents, int length, bool append);
+
+#if defined(_WIN32) // systems with win api
 
 #define PRINT_LAST_ERROR                                                                                                                                                                          \
     DWORD err = GetLastError();                                                                                                                                                                   \
     LPSTR buffer = NULL;                                                                                                                                                                          \
     FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, err, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR) & buffer, 0, NULL); \
-    fprintf(stderr, "Windows Error Msg: %s\n", buffer);                                                                                                                                                    \
+    fprintf(stderr, "Windows Error Msg: %s\n", buffer);                                                                                                                                           \
     LocalFree(buffer);
 
 #include <windows.h>
@@ -145,6 +190,65 @@ bool CLib_Fs_readFile(const char *path, CLib_String *str)
     return false; // success
 }
 
+bool CLib_Fs_writeFile(const char *path, CLib_String *contents, bool append)
+{
+    HANDLE hFile = CreateFileA(path, GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, (append ? OPEN_ALWAYS : CREATE_ALWAYS), FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE)
+    {
+        PRINT_LAST_ERROR
+        return true;
+    }
+
+    if (append)
+    {
+        SetFilePointer(hFile, 0l, NULL, FILE_END);
+    }
+
+    DWORD bytesWritten;
+    WriteFile(hFile, contents->str, contents->len, &bytesWritten, NULL);
+    if (bytesWritten != contents->len)
+    {
+        PRINT_LAST_ERROR
+        CloseHandle(hFile);
+        return true;
+    }
+
+    CloseHandle(hFile);
+    return false;
+}
+
+bool CLib_Fs_writeFileCStr(const char *path, const char *contents, int length, bool append)
+{
+    if (!length)
+    {
+        length = strlen(contents);
+    }
+
+    HANDLE hFile = CreateFileA(path, GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, (append ? OPEN_ALWAYS : CREATE_ALWAYS), FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE)
+    {
+        PRINT_LAST_ERROR
+        return true;
+    }
+
+    if (append)
+    {
+        SetFilePointer(hFile, 0l, NULL, FILE_END);
+    }
+
+    DWORD bytesWritten;
+    WriteFile(hFile, contents, length, &bytesWritten, NULL);
+    if (bytesWritten != length)
+    {
+        PRINT_LAST_ERROR
+        CloseHandle(hFile);
+        return true;
+    }
+
+    CloseHandle(hFile);
+    return false;
+}
+
 #elif defined(__linux__) || defined(__APPLE__) || defined(__MACH__) // systems supporting dirent.h
 
 #include <dirent.h>
@@ -165,7 +269,7 @@ CLib_String CLib_Fs_dir(const char *path, const char *mask, uint8_t mode, const 
     dir = opendir(path);
     if (!dir)
     {
-        fprintf(stderr, "[CBuilder FS Error] Failed to open directory: %s\n", strerror(errno));
+        fprintf(stderr, "[CLib FS Error] Failed to open directory: %s\n", strerror(errno));
         return (CLib_String){NULL, 0, 0}; // return nothing
     }
 
@@ -242,7 +346,7 @@ bool CLib_Fs_readFile(const char *path, CLib_String *str)
 
     if (!file)
     {
-        fprintf(stderr, "[CBuilder FS Error] Failed to open file: %s\n", strerror(errno));
+        fprintf(stderr, "[CLib FS Error] Failed to open file: %s\n", strerror(errno));
         return true; // error
     }
 
@@ -268,6 +372,71 @@ bool CLib_Fs_readFile(const char *path, CLib_String *str)
     fclose(file);
 
     return false; // success
+}
+
+bool CLib_Fs_writeFile(const char *path, CLib_String *contents, bool append)
+{
+    FILE *file = NULL;
+    if (append)
+    {
+        file = fopen(path, "a");
+    }
+    else
+    {
+        file = fopen(path, "w");
+    }
+
+    if (!file)
+    {
+        fprintf(stderr, "[CLib FS Error] Failed to open file: %s\n", strerror(errno));
+        return true;
+    }
+
+    int count = fwrite(contents->str, contents->len, 1, file);
+    if (!count)
+    {
+        fclose(file);
+        fprintf(stderr, "[CLib FS Error] Failed to write entire contents of string: %s\n", strerror(errno));
+        return false;
+    }
+
+    fclose(file);
+    return true;
+}
+
+bool CLib_Fs_writeFileCStr(const char *path, const char *contents, int length, bool append)
+{
+    if (!length)
+    {
+        length = strlen(contents);
+    }
+
+    FILE *file = NULL;
+    if (append)
+    {
+        file = fopen(path, "ab");
+    }
+    else
+    {
+        file = fopen(path, "wb");
+    }
+
+    if (!file)
+    {
+        fprintf(stderr, "[CLib FS Error] Failed to open file: %s\n", strerror(errno));
+        return true;
+    }
+
+    int count = fwrite(contents, length, 1, file);
+    if (!count)
+    {
+        fclose(file);
+        fprintf(stderr, "[CLib FS Error] Failed to write entire contents of string: %s\n", strerror(errno));
+        return false;
+    }
+
+    fclose(file);
+    return true;
 }
 
 #else // unsupported system
