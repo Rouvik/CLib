@@ -1,10 +1,6 @@
 # ignore the binaries
 **/*.exe
 
-# Ignore the clib_list_base_type.h thats only for my debug builds
-clib/clib_list_base_type.h
-clib/clib_vector_base_type.h
-
 # Ignore the useless .vscode crap
 .vscode
 

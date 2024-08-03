@@ -21,7 +21,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define CLIB_VECTOR_RESERVE (5)
+#ifndef CLIB_VECTOR_RESERVE
+#define CLIB_VECTOR_RESERVE (16)
+#endif
 
 #define CLIB_VECTOR_SETUP(TYPE, ERROR_VALUE)                                                                            \
     typedef struct CLib_Vector_##TYPE                                                                                   \

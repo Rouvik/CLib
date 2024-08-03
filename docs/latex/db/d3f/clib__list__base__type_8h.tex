@@ -1,0 +1,242 @@
+\doxysection{dev/clib\+\_\+list\+\_\+base\+\_\+type.h File Reference}
+\hypertarget{clib__list__base__type_8h}{}\label{clib__list__base__type_8h}\index{dev/clib\_list\_base\_type.h@{dev/clib\_list\_base\_type.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_lib___list}{CLib\+\_\+\+List}}
+\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
+ Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}}
+\begin{DoxyCompactList}\small\item\em The root struct containing the list data like size and pointer to its first node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}}~int
+\item 
+\#define \mbox{\hyperlink{clib__list__base__type_8h_a6c6dbb900fc07ab0fdeddc55c5a0a3ec}{CLib\+\_\+\+List\+\_\+\+ERROR\+\_\+\+VALUE}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_c_lib___list}{CLib\+\_\+\+List}} \mbox{\hyperlink{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93}{CLib\+\_\+\+List\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
+ Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \mbox{\hyperlink{clib__list__base__type_8h_a885a185a657055da09f86ff7e4743a5d}{CLib\+\_\+\+List\+\_\+init}} (\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Initialises a list with a root element containing the data and returns the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \mbox{\hyperlink{clib__list__base__type_8h_a22d240ccfb119081c2260cbd4680eda0}{CLib\+\_\+\+List\+\_\+init\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Initialises an empty \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} with only \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} of size 0 and root = NULL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__list__base__type_8h_a4f718de4b8f252efa6e5d3e1e8b0fc3f}{CLib\+\_\+\+List\+\_\+deinit}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Frees the \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} and sets \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} passed to a 0 state ie, \{.size = 0, .root = NULL\}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__list__base__type_8h_a2e691d756022bcc84ba4fea128bece56}{CLib\+\_\+\+List\+\_\+push\+Back}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Pushes an element to the end of \doxylink{struct_c_lib___list}{CLib\+\_\+\+List}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} \mbox{\hyperlink{clib__list__base__type_8h_a52a1fc7602ca139693bcfafbb4e0adcc}{CLib\+\_\+\+List\+\_\+pop\+Back}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Pops an element from the end of \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} and returns it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__list__base__type_8h_a4f9180f065d92ef250a036f277c8d585}{CLib\+\_\+\+List\+\_\+push\+Front}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Pushes an element to the beginning of \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} \mbox{\hyperlink{clib__list__base__type_8h_a92ca7021100a879d17435fdbdb228638}{CLib\+\_\+\+List\+\_\+pop\+Front}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Pops off an element from the beginning of the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__list__base__type_8h_af01771d736dea27dfb471eb568d0f38e}{CLib\+\_\+\+List\+\_\+insert}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root, \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} data, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Inserts an element to a given index in \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} ~\newline
+ Behaviour Description\+: \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} \mbox{\hyperlink{clib__list__base__type_8h_ae849b7e0ffe7d75e29f2354e6f04f1bf}{CLib\+\_\+\+List\+\_\+at}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root, int index)
+\begin{DoxyCompactList}\small\item\em Returns the element contained by the list at a particular index ~\newline
+ Note\+: This function returns ERROR\+\_\+\+VALUE incase of bad indexing which mush be checked by the end user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{clib__list__base__type_8h_a6c6dbb900fc07ab0fdeddc55c5a0a3ec}\label{clib__list__base__type_8h_a6c6dbb900fc07ab0fdeddc55c5a0a3ec} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_ERROR\_VALUE@{CLib\_List\_ERROR\_VALUE}}
+\index{CLib\_List\_ERROR\_VALUE@{CLib\_List\_ERROR\_VALUE}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_ERROR\_VALUE}{CLib\_List\_ERROR\_VALUE}}
+{\footnotesize\ttfamily \#define CLib\+\_\+\+List\+\_\+\+ERROR\+\_\+\+VALUE~0}
+
+\Hypertarget{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}\label{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_TYPE@{CLib\_List\_TYPE}}
+\index{CLib\_List\_TYPE@{CLib\_List\_TYPE}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_TYPE}{CLib\_List\_TYPE}}
+{\footnotesize\ttfamily \#define CLib\+\_\+\+List\+\_\+\+TYPE~int}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93}\label{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_t@{CLib\_List\_t}}
+\index{CLib\_List\_t@{CLib\_List\_t}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_t}{CLib\_List\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_c_lib___list}{CLib\+\_\+\+List}} \mbox{\hyperlink{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93}{CLib\+\_\+\+List\+\_\+t}}}
+
+
+
+The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
+ Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{clib__list__base__type_8h_ae849b7e0ffe7d75e29f2354e6f04f1bf}\label{clib__list__base__type_8h_ae849b7e0ffe7d75e29f2354e6f04f1bf} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_at@{CLib\_List\_at}}
+\index{CLib\_List\_at@{CLib\_List\_at}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_at()}{CLib\_List\_at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} CLib\+\_\+\+List\+\_\+at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Returns the element contained by the list at a particular index ~\newline
+ Note\+: This function returns ERROR\+\_\+\+VALUE incase of bad indexing which mush be checked by the end user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to get from \\
+\hline
+{\em index} & The index to fetch the data from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CLib\+\_\+\+List\+\_\+\+TYPE The data at that index or ERROR\+\_\+\+VALUE for bad index 
+\end{DoxyReturn}
+\Hypertarget{clib__list__base__type_8h_a4f718de4b8f252efa6e5d3e1e8b0fc3f}\label{clib__list__base__type_8h_a4f718de4b8f252efa6e5d3e1e8b0fc3f} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_deinit@{CLib\_List\_deinit}}
+\index{CLib\_List\_deinit@{CLib\_List\_deinit}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_deinit()}{CLib\_List\_deinit()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+List\+\_\+deinit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root }\end{DoxyParamCaption})}
+
+
+
+Frees the \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} and sets \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} passed to a 0 state ie, \{.size = 0, .root = NULL\}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} entity \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__list__base__type_8h_a885a185a657055da09f86ff7e4743a5d}\label{clib__list__base__type_8h_a885a185a657055da09f86ff7e4743a5d} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_init@{CLib\_List\_init}}
+\index{CLib\_List\_init@{CLib\_List\_init}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_init()}{CLib\_List\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} CLib\+\_\+\+List\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Initialises a list with a root element containing the data and returns the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to store in the root node of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} The list root container returned containing valid list 
+\end{DoxyReturn}
+\Hypertarget{clib__list__base__type_8h_a22d240ccfb119081c2260cbd4680eda0}\label{clib__list__base__type_8h_a22d240ccfb119081c2260cbd4680eda0} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_initEmpty@{CLib\_List\_initEmpty}}
+\index{CLib\_List\_initEmpty@{CLib\_List\_initEmpty}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_initEmpty()}{CLib\_List\_initEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} CLib\+\_\+\+List\+\_\+init\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises an empty \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} with only \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} of size 0 and root = NULL. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} The list with empty contents 
+\end{DoxyReturn}
+\Hypertarget{clib__list__base__type_8h_af01771d736dea27dfb471eb568d0f38e}\label{clib__list__base__type_8h_af01771d736dea27dfb471eb568d0f38e} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_insert@{CLib\_List\_insert}}
+\index{CLib\_List\_insert@{CLib\_List\_insert}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_insert()}{CLib\_List\_insert()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+List\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}}}]{data,  }\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+Inserts an element to a given index in \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} ~\newline
+ Behaviour Description\+: 
+
+
+\begin{DoxyItemize}
+\item If index is less than size\+: The element is pushed after the node specified by index
+\item If index is greater than or equal to size\+: The element is pushed to the end of the list
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to insert into \\
+\hline
+{\em data} & The data to be inserted in the list \\
+\hline
+{\em index} & The index to insert after in the \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__list__base__type_8h_a52a1fc7602ca139693bcfafbb4e0adcc}\label{clib__list__base__type_8h_a52a1fc7602ca139693bcfafbb4e0adcc} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_popBack@{CLib\_List\_popBack}}
+\index{CLib\_List\_popBack@{CLib\_List\_popBack}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_popBack()}{CLib\_List\_popBack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} CLib\+\_\+\+List\+\_\+pop\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root }\end{DoxyParamCaption})}
+
+
+
+Pops an element from the end of \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer of the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} entity to pop and return from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CLib\+\_\+\+List\+\_\+\+TYPE The data popped off from the list 
+\end{DoxyReturn}
+\Hypertarget{clib__list__base__type_8h_a92ca7021100a879d17435fdbdb228638}\label{clib__list__base__type_8h_a92ca7021100a879d17435fdbdb228638} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_popFront@{CLib\_List\_popFront}}
+\index{CLib\_List\_popFront@{CLib\_List\_popFront}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_popFront()}{CLib\_List\_popFront()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} CLib\+\_\+\+List\+\_\+pop\+Front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root }\end{DoxyParamCaption})}
+
+
+
+Pops off an element from the beginning of the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to pop off from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+CLib\+\_\+\+List\+\_\+\+TYPE The data popped off from the list 
+\end{DoxyReturn}
+\Hypertarget{clib__list__base__type_8h_a2e691d756022bcc84ba4fea128bece56}\label{clib__list__base__type_8h_a2e691d756022bcc84ba4fea128bece56} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_pushBack@{CLib\_List\_pushBack}}
+\index{CLib\_List\_pushBack@{CLib\_List\_pushBack}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_pushBack()}{CLib\_List\_pushBack()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+List\+\_\+push\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes an element to the end of \doxylink{struct_c_lib___list}{CLib\+\_\+\+List}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to push to \\
+\hline
+{\em data} & The data to push at end of \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__list__base__type_8h_a4f9180f065d92ef250a036f277c8d585}\label{clib__list__base__type_8h_a4f9180f065d92ef250a036f277c8d585} 
+\index{clib\_list\_base\_type.h@{clib\_list\_base\_type.h}!CLib\_List\_pushFront@{CLib\_List\_pushFront}}
+\index{CLib\_List\_pushFront@{CLib\_List\_pushFront}!clib\_list\_base\_type.h@{clib\_list\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_List\_pushFront()}{CLib\_List\_pushFront()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+List\+\_\+push\+Front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes an element to the beginning of \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to push to \\
+\hline
+{\em data} & The data to push to the beginning of the list \\
+\hline
+\end{DoxyParams}

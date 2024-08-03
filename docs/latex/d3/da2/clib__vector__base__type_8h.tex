@@ -1,0 +1,251 @@
+\doxysection{dev/clib\+\_\+vector\+\_\+base\+\_\+type.h File Reference}
+\hypertarget{clib__vector__base__type_8h}{}\label{clib__vector__base__type_8h}\index{dev/clib\_vector\_base\_type.h@{dev/clib\_vector\_base\_type.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_lib___vector}{CLib\+\_\+\+Vector}}
+\begin{DoxyCompactList}\small\item\em The container for \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} storing the pointer to the underlying TYPE \texorpdfstring{$\ast$}{*}data list, size and reserved elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clib__vector__base__type_8h_ac3e2eda1d7daa5e5e7f4ebf9959d7bef}{CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE}}~(5)
+\begin{DoxyCompactList}\small\item\em The basic number of elements reserved by the vector ~\newline
+ The vector usually reserves elements in multiples of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}}~int
+\item 
+\#define \mbox{\hyperlink{clib__vector__base__type_8h_a8fe83ac76edc595f6b98cd4a4127aed5}{ERROR}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_c_lib___vector}{CLib\+\_\+\+Vector}} \mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em The container for \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} storing the pointer to the underlying TYPE \texorpdfstring{$\ast$}{*}data list, size and reserved elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \mbox{\hyperlink{clib__vector__base__type_8h_a653b7817b03d236d9a274b6e96450d8b}{CLib\+\_\+\+Vector\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initialises a CLib\+\_\+\+Vector\+\_\+t with 0 elements and reserved elements of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_a0c059d91279c073abb9c3bdd758b2f1c}{CLib\+\_\+\+Vector\+\_\+deinit}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector)
+\begin{DoxyCompactList}\small\item\em Frees the CLib\+\_\+\+Vector\+\_\+t from memory and sets it to a zero state ie, \{.data = NULL, .size = 0, .reserved = 0\}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_a134048439f39bb8a7f09a3fed79be106}{CLib\+\_\+\+Vector\+\_\+push\+Back}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Pushes an element data to the end of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} \mbox{\hyperlink{clib__vector__base__type_8h_a62daedf2eb3bf4f78e17290b098285cf}{CLib\+\_\+\+Vector\+\_\+pop\+Back}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector)
+\begin{DoxyCompactList}\small\item\em Pops off an element from the end of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} and returns it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_a348d4a509f277207f6d5f11a89dbc0dc}{CLib\+\_\+\+Vector\+\_\+push\+Front}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Pushes an element to the beginning of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} \mbox{\hyperlink{clib__vector__base__type_8h_adc8a912ce5f1ecf5217b337c72260fb1}{CLib\+\_\+\+Vector\+\_\+pop\+Front}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector)
+\begin{DoxyCompactList}\small\item\em Pops off an element from the beginning of the list and returns it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_aeb8671ae8f74e5892f73d2f797cff054}{CLib\+\_\+\+Vector\+\_\+insert}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, int position, \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} data)
+\begin{DoxyCompactList}\small\item\em Inserts and sets (if the element is already present) to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} ~\newline
+ Behaviour Description\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_a2f73571b1fb505612db0547783e49f3a}{CLib\+\_\+\+Vector\+\_\+reserve}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, int expected\+\_\+elements)
+\begin{DoxyCompactList}\small\item\em Reserves the vector with an arbitary amount of expected\+\_\+elements, this function can actually reserve for an arbitary size and not a multiple of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clib__vector__base__type_8h_a74fa65717ed4f7bb0b4a8ea7ab173f6b}{CLib\+\_\+\+Vector\+\_\+fill}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} value, unsigned int offset, unsigned int count)
+\begin{DoxyCompactList}\small\item\em Fills a part of the vector with a particular value and possibly resizes the vector to accomodate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{clib__vector__base__type_8h_ac3e2eda1d7daa5e5e7f4ebf9959d7bef}\label{clib__vector__base__type_8h_ac3e2eda1d7daa5e5e7f4ebf9959d7bef} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLIB\_VECTOR\_RESERVE@{CLIB\_VECTOR\_RESERVE}}
+\index{CLIB\_VECTOR\_RESERVE@{CLIB\_VECTOR\_RESERVE}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_VECTOR\_RESERVE}{CLIB\_VECTOR\_RESERVE}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE~(5)}
+
+
+
+The basic number of elements reserved by the vector ~\newline
+ The vector usually reserves elements in multiples of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. 
+
+\Hypertarget{clib__vector__base__type_8h_a8fe83ac76edc595f6b98cd4a4127aed5}\label{clib__vector__base__type_8h_a8fe83ac76edc595f6b98cd4a4127aed5} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!ERROR@{ERROR}}
+\index{ERROR@{ERROR}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{ERROR}{ERROR}}
+{\footnotesize\ttfamily \#define ERROR~0}
+
+\Hypertarget{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}\label{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{TYPE}{TYPE}}
+{\footnotesize\ttfamily \#define TYPE~int}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}\label{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_t@{CLib\_Vector\_t}}
+\index{CLib\_Vector\_t@{CLib\_Vector\_t}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_t}{CLib\_Vector\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_c_lib___vector}{CLib\+\_\+\+Vector}} \mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}}}
+
+
+
+The container for \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} storing the pointer to the underlying TYPE \texorpdfstring{$\ast$}{*}data list, size and reserved elements. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{clib__vector__base__type_8h_a0c059d91279c073abb9c3bdd758b2f1c}\label{clib__vector__base__type_8h_a0c059d91279c073abb9c3bdd758b2f1c} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_deinit@{CLib\_Vector\_deinit}}
+\index{CLib\_Vector\_deinit@{CLib\_Vector\_deinit}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_deinit()}{CLib\_Vector\_deinit()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+deinit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector }\end{DoxyParamCaption})}
+
+
+
+Frees the CLib\+\_\+\+Vector\+\_\+t from memory and sets it to a zero state ie, \{.data = NULL, .size = 0, .reserved = 0\}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to CLib\+\_\+\+Vector\+\_\+t to free \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__vector__base__type_8h_a74fa65717ed4f7bb0b4a8ea7ab173f6b}\label{clib__vector__base__type_8h_a74fa65717ed4f7bb0b4a8ea7ab173f6b} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_fill@{CLib\_Vector\_fill}}
+\index{CLib\_Vector\_fill@{CLib\_Vector\_fill}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_fill()}{CLib\_Vector\_fill()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+fill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}}}]{value,  }\item[{unsigned int}]{offset,  }\item[{unsigned int}]{count }\end{DoxyParamCaption})}
+
+
+
+Fills a part of the vector with a particular value and possibly resizes the vector to accomodate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to fill \\
+\hline
+{\em value} & The value to be filled in the vector \\
+\hline
+{\em offset} & The offset at which filling begins \\
+\hline
+{\em count} & The number of elements to fill \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__vector__base__type_8h_a653b7817b03d236d9a274b6e96450d8b}\label{clib__vector__base__type_8h_a653b7817b03d236d9a274b6e96450d8b} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_init@{CLib\_Vector\_init}}
+\index{CLib\_Vector\_init@{CLib\_Vector\_init}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_init()}{CLib\_Vector\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} CLib\+\_\+\+Vector\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises a CLib\+\_\+\+Vector\+\_\+t with 0 elements and reserved elements of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. 
+
+\begin{DoxyReturn}{Returns}
+CLib\+\_\+\+Vector\+\_\+t The vector initialised 
+\end{DoxyReturn}
+\Hypertarget{clib__vector__base__type_8h_aeb8671ae8f74e5892f73d2f797cff054}\label{clib__vector__base__type_8h_aeb8671ae8f74e5892f73d2f797cff054} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_insert@{CLib\_Vector\_insert}}
+\index{CLib\_Vector\_insert@{CLib\_Vector\_insert}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_insert()}{CLib\_Vector\_insert()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{int}]{position,  }\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Inserts and sets (if the element is already present) to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} ~\newline
+ Behaviour Description\+: 
+
+
+\begin{DoxyItemize}
+\item If position is less than size\+: Sets the element at the position with the data
+\item If position is greater than or equal to size\+: Adds 0 values to the uninitialised elements and sets the element at position ~\newline
+ Note\+: All of the above operations will resize the vector if required
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to insert into \\
+\hline
+{\em position} & The position to insert into \\
+\hline
+{\em data} & The data to insert at position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__vector__base__type_8h_a62daedf2eb3bf4f78e17290b098285cf}\label{clib__vector__base__type_8h_a62daedf2eb3bf4f78e17290b098285cf} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_popBack@{CLib\_Vector\_popBack}}
+\index{CLib\_Vector\_popBack@{CLib\_Vector\_popBack}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_popBack()}{CLib\_Vector\_popBack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} CLib\+\_\+\+Vector\+\_\+pop\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector }\end{DoxyParamCaption})}
+
+
+
+Pops off an element from the end of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to pop off from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TYPE The data popped off from the end 
+\end{DoxyReturn}
+\Hypertarget{clib__vector__base__type_8h_adc8a912ce5f1ecf5217b337c72260fb1}\label{clib__vector__base__type_8h_adc8a912ce5f1ecf5217b337c72260fb1} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_popFront@{CLib\_Vector\_popFront}}
+\index{CLib\_Vector\_popFront@{CLib\_Vector\_popFront}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_popFront()}{CLib\_Vector\_popFront()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} CLib\+\_\+\+Vector\+\_\+pop\+Front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector }\end{DoxyParamCaption})}
+
+
+
+Pops off an element from the beginning of the list and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to pop off from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TYPE The data popped off from the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} 
+\end{DoxyReturn}
+\Hypertarget{clib__vector__base__type_8h_a134048439f39bb8a7f09a3fed79be106}\label{clib__vector__base__type_8h_a134048439f39bb8a7f09a3fed79be106} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_pushBack@{CLib\_Vector\_pushBack}}
+\index{CLib\_Vector\_pushBack@{CLib\_Vector\_pushBack}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_pushBack()}{CLib\_Vector\_pushBack()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+push\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes an element data to the end of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to push to \\
+\hline
+{\em data} & The data to be pushed at the end \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__vector__base__type_8h_a348d4a509f277207f6d5f11a89dbc0dc}\label{clib__vector__base__type_8h_a348d4a509f277207f6d5f11a89dbc0dc} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_pushFront@{CLib\_Vector\_pushFront}}
+\index{CLib\_Vector\_pushFront@{CLib\_Vector\_pushFront}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_pushFront()}{CLib\_Vector\_pushFront()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+push\+Front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes an element to the beginning of \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to the \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to push at the beginning \\
+\hline
+{\em data} & The data to be pushed at the beginning \\
+\hline
+\end{DoxyParams}
+\Hypertarget{clib__vector__base__type_8h_a2f73571b1fb505612db0547783e49f3a}\label{clib__vector__base__type_8h_a2f73571b1fb505612db0547783e49f3a} 
+\index{clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}!CLib\_Vector\_reserve@{CLib\_Vector\_reserve}}
+\index{CLib\_Vector\_reserve@{CLib\_Vector\_reserve}!clib\_vector\_base\_type.h@{clib\_vector\_base\_type.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Vector\_reserve()}{CLib\_Vector\_reserve()}}
+{\footnotesize\ttfamily void CLib\+\_\+\+Vector\+\_\+reserve (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{vector,  }\item[{int}]{expected\+\_\+elements }\end{DoxyParamCaption})}
+
+
+
+Reserves the vector with an arbitary amount of expected\+\_\+elements, this function can actually reserve for an arbitary size and not a multiple of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & The pointer to \doxylink{struct_c_lib___vector}{CLib\+\_\+\+Vector} to reserve for \\
+\hline
+{\em expected\+\_\+elements} & The number of elements expected by the vector \\
+\hline
+\end{DoxyParams}

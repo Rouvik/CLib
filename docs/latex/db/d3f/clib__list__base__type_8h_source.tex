@@ -1,0 +1,179 @@
+\doxysection{clib\+\_\+list\+\_\+base\+\_\+type.\+h}
+\hypertarget{clib__list__base__type_8h_source}{}\label{clib__list__base__type_8h_source}\index{dev/clib\_list\_base\_type.h@{dev/clib\_list\_base\_type.h}}
+\mbox{\hyperlink{clib__list__base__type_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ CLib\_List\_TYPE}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ CLib\_List\_TYPE\ int}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLib\_List\_TYPE}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ CLib\_List\_ERROR\_VALUE}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ CLib\_List\_ERROR\_VALUE\ 0}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLib\_List\_ERROR\_VALUE}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_lib___list}{CLib\_List}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_lib___list}{CLib\_List}}\ *\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00019\ \}\ \mbox{\hyperlink{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93}{CLib\_List\_t}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ \mbox{\hyperlink{clib__list__base__type_8h_a885a185a657055da09f86ff7e4743a5d}{CLib\_List\_init}}(\mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}})}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ list;}
+\DoxyCodeLine{00040\ \ \ \ \ list.\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ =\ 1;}
+\DoxyCodeLine{00041\ \ \ \ \ list.\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ (\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}));}
+\DoxyCodeLine{00042\ \ \ \ \ list.\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}}\ =\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00043\ \ \ \ \ list.\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ NULL;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ list;}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ \mbox{\hyperlink{clib__list__base__type_8h_a22d240ccfb119081c2260cbd4680eda0}{CLib\_List\_initEmpty}}()}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}})\{.\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ =\ 0,\ .root\ =\ NULL\};}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__list__base__type_8h_a4f718de4b8f252efa6e5d3e1e8b0fc3f}{CLib\_List\_deinit}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root)}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *node\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{while}\ (node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ !=\ NULL)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *present\ =\ node;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ free(present);}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ free(node);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ NULL;}
+\DoxyCodeLine{00077\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ =\ 0;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__list__base__type_8h_a2e691d756022bcc84ba4fea128bece56}{CLib\_List\_pushBack}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root,\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}})}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ ==\ 0)}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ (\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}));}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}}\ =\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ NULL;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *rootNode\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ !=\ NULL)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ rootNode\ =\ rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ (\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}));}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}}\ =\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ NULL;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}++;}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{clib__list__base__type_8h_a52a1fc7602ca139693bcfafbb4e0adcc}{CLib\_List\_popBack}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root)}
+\DoxyCodeLine{00118\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ <\ 1)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{clib__list__base__type_8h_a6c6dbb900fc07ab0fdeddc55c5a0a3ec}{CLib\_List\_ERROR\_VALUE}};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ ==\ 1)}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ ret\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ free(root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ NULL;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *node\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}};\ i++)}
+\DoxyCodeLine{00135\ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ ret\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00140\ \ \ \ \ free(node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}});}
+\DoxyCodeLine{00141\ \ \ \ \ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ NULL;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}-\/-\/;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__list__base__type_8h_a4f9180f065d92ef250a036f277c8d585}{CLib\_List\_pushFront}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root,\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}})}
+\DoxyCodeLine{00155\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *oldNodes\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00157\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ (\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}));}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}}\ =\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00160\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ oldNodes;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}++;}
+\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00171\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{clib__list__base__type_8h_a92ca7021100a879d17435fdbdb228638}{CLib\_List\_popFront}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root)}
+\DoxyCodeLine{00172\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *rootNode\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00174\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ ret\ =\ rootNode-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00177\ \ \ \ \ free(rootNode);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}-\/-\/;}
+\DoxyCodeLine{00180\ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__list__base__type_8h_af01771d736dea27dfb471eb568d0f38e}{CLib\_List\_insert}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}*\ root,\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00195\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *node\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ index;\ i++)}
+\DoxyCodeLine{00198\ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ ==\ NULL)}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00205\ \ \ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *nextPtr\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ (\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}));}
+\DoxyCodeLine{00210\ \ \ \ \ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}\ =\ nextPtr;}
+\DoxyCodeLine{00211\ \ \ \ \ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}}-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}}\ =\ \mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}++;}
+\DoxyCodeLine{00214\ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00224\ \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\_List\_TYPE}}\ \mbox{\hyperlink{clib__list__base__type_8h_ae849b7e0ffe7d75e29f2354e6f04f1bf}{CLib\_List\_at}}(\mbox{\hyperlink{struct_c_lib___list___root}{CLib\_List\_Root}}\ *root,\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00225\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{if}(index\ >\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_a362d342111efd02272a88cecb1652c0b}{size}}\ -\/\ 1)}
+\DoxyCodeLine{00227\ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{clib__list__base__type_8h_a6c6dbb900fc07ab0fdeddc55c5a0a3ec}{CLib\_List\_ERROR\_VALUE}};}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___list}{CLib\_List\_t}}\ *node\ =\ root-\/>\mbox{\hyperlink{struct_c_lib___list___root_ac5e5db6481f55f4d3dc7dd30ec1946b8}{root}};}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ index;\ i++)}
+\DoxyCodeLine{00233\ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct_c_lib___list_af1db8fdbfb8880e10bb38899c9dd6dc6}{next}};}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\mbox{\hyperlink{struct_c_lib___list_a09a3412ebd2b32c8b64d08cbe672bef9}{data}};}
+\DoxyCodeLine{00238\ \}}
+
+\end{DoxyCode}

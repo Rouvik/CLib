@@ -1,0 +1,140 @@
+\doxysection{clib/clib\+\_\+fs.h File Reference}
+\hypertarget{clib__fs_8h}{}\label{clib__fs_8h}\index{clib/clib\_fs.h@{clib/clib\_fs.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}clib\+\_\+string.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}{CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FILES}}~(1)
+\item 
+\#define \mbox{\hyperlink{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}{CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FOLDERS}}~(1 $<$$<$ 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\+\_\+\+Fs\+\_\+dir}} (const char \texorpdfstring{$\ast$}{*}path, const char \texorpdfstring{$\ast$}{*}mask, uint8\+\_\+t mode, const char \texorpdfstring{$\ast$}{*}delim)
+\begin{DoxyCompactList}\small\item\em Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it ~\newline
+ Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\+\_\+\+Fs\+\_\+read\+File}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Reads a file into a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*}str. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\+\_\+\+Fs\+\_\+write\+File}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}contents, bool append)
+\begin{DoxyCompactList}\small\item\em Synchronously writes a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a file specified by const char \texorpdfstring{$\ast$}{*}path. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\+\_\+\+Fs\+\_\+write\+File\+CStr}} (const char \texorpdfstring{$\ast$}{*}path, const char \texorpdfstring{$\ast$}{*}contents, int length, bool append)
+\begin{DoxyCompactList}\small\item\em Synchronously writes a const char\texorpdfstring{$\ast$}{*} to a file specified by const char \texorpdfstring{$\ast$}{*}path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}\label{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85} 
+\index{clib\_fs.h@{clib\_fs.h}!CLIB\_FS\_DIRMODE\_FILES@{CLIB\_FS\_DIRMODE\_FILES}}
+\index{CLIB\_FS\_DIRMODE\_FILES@{CLIB\_FS\_DIRMODE\_FILES}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_FS\_DIRMODE\_FILES}{CLIB\_FS\_DIRMODE\_FILES}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FILES~(1)}
+
+\Hypertarget{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}\label{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1} 
+\index{clib\_fs.h@{clib\_fs.h}!CLIB\_FS\_DIRMODE\_FOLDERS@{CLIB\_FS\_DIRMODE\_FOLDERS}}
+\index{CLIB\_FS\_DIRMODE\_FOLDERS@{CLIB\_FS\_DIRMODE\_FOLDERS}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_FS\_DIRMODE\_FOLDERS}{CLIB\_FS\_DIRMODE\_FOLDERS}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FOLDERS~(1 $<$$<$ 1)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}\label{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958} 
+\index{clib\_fs.h@{clib\_fs.h}!CLib\_Fs\_dir@{CLib\_Fs\_dir}}
+\index{CLib\_Fs\_dir@{CLib\_Fs\_dir}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Fs\_dir()}{CLib\_Fs\_dir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} CLib\+\_\+\+Fs\+\_\+dir (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{mask,  }\item[{uint8\+\_\+t}]{mode,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{delim }\end{DoxyParamCaption})}
+
+
+
+Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it ~\newline
+ Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the directory to open \\
+\hline
+{\em mask} & The file mask to filter through while writing, Examples\+: \texorpdfstring{$\ast$}{*}.\texorpdfstring{$\ast$}{*}(all files and folders), \texorpdfstring{$\ast$}{*}.txt(all text), main.\texorpdfstring{$\ast$}{*}(all files with name main like main.\+c, main.\+exe, main.\+s ...) \\
+\hline
+{\em mode} & The mode to use when looking for files, possible modes are CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FILES and CLIB\+\_\+\+FS\+\_\+\+DIRMODE\+\_\+\+FOLDERS, can be OR ed to get both files and folders \\
+\hline
+{\em delim} & The delimeter to append between file and folder names when writing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_c_lib___string}{CLib\+\_\+\+String} The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} containing list of files and folders seperated by const char \texorpdfstring{$\ast$}{*}delim 
+\end{DoxyReturn}
+\Hypertarget{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}\label{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064} 
+\index{clib\_fs.h@{clib\_fs.h}!CLib\_Fs\_readFile@{CLib\_Fs\_readFile}}
+\index{CLib\_Fs\_readFile@{CLib\_Fs\_readFile}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Fs\_readFile()}{CLib\_Fs\_readFile()}}
+{\footnotesize\ttfamily bool CLib\+\_\+\+Fs\+\_\+read\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+
+
+Reads a file into a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*}str. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path of file to read from \\
+\hline
+{\em str} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to read to, must be initialised with \doxylink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\+\_\+\+String\+\_\+init()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the call FAILS and opening or reading file didnot suceed, the \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is usually in a corrupted state in this situation and must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} 
+
+false If the call suceeds 
+\end{DoxyReturn}
+\Hypertarget{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}\label{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2} 
+\index{clib\_fs.h@{clib\_fs.h}!CLib\_Fs\_writeFile@{CLib\_Fs\_writeFile}}
+\index{CLib\_Fs\_writeFile@{CLib\_Fs\_writeFile}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Fs\_writeFile()}{CLib\_Fs\_writeFile()}}
+{\footnotesize\ttfamily bool CLib\+\_\+\+Fs\+\_\+write\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}}]{contents,  }\item[{bool}]{append }\end{DoxyParamCaption})}
+
+
+
+Synchronously writes a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a file specified by const char \texorpdfstring{$\ast$}{*}path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path of the file including file name to write to \\
+\hline
+{\em contents} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} containing the contents to write from \\
+\hline
+{\em append} & If set to true, the contents are appended to file else content is overwritten on file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the call fails and error is printed to stderr 
+
+false If call suceeds and file is written 
+\end{DoxyReturn}
+\Hypertarget{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}\label{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e} 
+\index{clib\_fs.h@{clib\_fs.h}!CLib\_Fs\_writeFileCStr@{CLib\_Fs\_writeFileCStr}}
+\index{CLib\_Fs\_writeFileCStr@{CLib\_Fs\_writeFileCStr}!clib\_fs.h@{clib\_fs.h}}
+\doxysubsubsection{\texorpdfstring{CLib\_Fs\_writeFileCStr()}{CLib\_Fs\_writeFileCStr()}}
+{\footnotesize\ttfamily bool CLib\+\_\+\+Fs\+\_\+write\+File\+CStr (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{contents,  }\item[{int}]{length,  }\item[{bool}]{append }\end{DoxyParamCaption})}
+
+
+
+Synchronously writes a const char\texorpdfstring{$\ast$}{*} to a file specified by const char \texorpdfstring{$\ast$}{*}path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path of the file including file name to write to \\
+\hline
+{\em contents} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} containing the contents to write from \\
+\hline
+{\em length} & The length of the string contents to write, {\bfseries{If set to 0 then length is determined automatically}} \\
+\hline
+{\em append} & If set to true, the contents are appended to file else content is overwritten on file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the call fails and error is printed to stderr 
+
+false If call suceeds and file is written 
+\end{DoxyReturn}
