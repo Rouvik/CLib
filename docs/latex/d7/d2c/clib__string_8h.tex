@@ -22,7 +22,8 @@ struct \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}}
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_aebf3bafb1aeaaf146cb607dbf5169c91}{CLib\+\_\+\+String\+\_\+initN}} (const char \texorpdfstring{$\ast$}{*}src, int len)
 \begin{DoxyCompactList}\small\item\em Initialises the \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} struct with a length of len on a heap alocated string with appropriate memory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
-\begin{DoxyCompactList}\small\item\em Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0 ~\newline
+ Note\+: Calling deinit on a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with buf\+\_\+len = 0 (String View) has no dangers as it is checked for but not recommended. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{clib__string_8h_af3b33cd7c04daaacaaf25b0c243ddd63}{CLib\+\_\+\+String\+\_\+reset}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
 \begin{DoxyCompactList}\small\item\em Resets the provided \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to empty state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_af8fd3ec06475484a8bb4d52b9f3211ff}{CLib\+\_\+\+String\+\_\+copy}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
@@ -166,7 +167,8 @@ Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new
 
 
 
-Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0. 
+Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0 ~\newline
+ Note\+: Calling deinit on a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with buf\+\_\+len = 0 (String View) has no dangers as it is checked for but not recommended. 
 
 
 \begin{DoxyParams}{Parameters}

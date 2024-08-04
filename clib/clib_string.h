@@ -26,7 +26,7 @@
 #include <ctype.h>
 
 #ifndef CLIB_BUF_CHUNK
-    #define CLIB_BUF_CHUNK (256)
+#define CLIB_BUF_CHUNK (256)
 #endif // CLIB_BUF_CHUNK
 
 /**
@@ -113,15 +113,19 @@ CLib_String CLib_String_initN(const char *src, int len)
 }
 
 /**
- * @brief Standard call for cstd free for char *str, also sets the internal states to 0
+ * @brief Standard call for cstd free for char *str, also sets the internal states to 0 @n
+ *        Note: Calling deinit on a CLib_String with buf_len = 0 (String View) has no dangers as it is checked for but not recommended
  *
  * @param str The CLib_String ref to free
  */
 void CLib_String_deinit(CLib_String *str)
 {
-    free(str->str);
-    str->len = 0;
-    str->buf_len = 0;
+    if (str->buf_len)
+    {
+        free(str->str);
+        str->len = 0;
+        str->buf_len = 0;
+    }
 }
 
 /**
@@ -147,7 +151,7 @@ CLib_String CLib_String_copy(CLib_String *str)
 {
     CLib_String newStr;
     newStr.str = (char *)malloc(str->buf_len); // assign new memory on heap
-    newStr.buf_len = str->buf_len;     // copy the buf_len and len
+    newStr.buf_len = str->buf_len;             // copy the buf_len and len
     newStr.len = str->len;
 
     memcpy(newStr.str, str->str, str->buf_len); // actually copy the string
@@ -172,8 +176,8 @@ CLib_String *CLib_String_concat(CLib_String *str1, CLib_String *str2)
             divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
-        str1->str = (char *) realloc(str1->str, str1->buf_len); // allocate more memory
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot;        // set new buf_len
+        str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     memcpy((str1->str + str1->len), str2->str, str2->len + 1); // assumes str1 has enough space
@@ -202,7 +206,7 @@ CLib_String *CLib_String_concatCStr(CLib_String *str1, const char *str2)
             divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot;        // set new buf_len
         str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
@@ -233,21 +237,21 @@ CLib_String *CLib_String_concatN(CLib_String *str1, CLib_String *str2, int count
             divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot;        // set new buf_len
         str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < str2->len)
     {
         memcpy((str1->str + str1->len), str2->str, count); // assumes str1 has enough space
-        *(str1->str + str1->len + count) = '\0'; // make sure it is null terminated
-        str1->len += count; // assign the new len
+        *(str1->str + str1->len + count) = '\0';           // make sure it is null terminated
+        str1->len += count;                                // assign the new len
     }
     else
     {
         memcpy((str1->str + str1->len), str2->str, str2->len); // assumes str1 has enough space
-        *(str1->str + str1->len + str2->len) = '\0'; // make sure it is null terminated
-        str1->len += str2->len; // assign the new len
+        *(str1->str + str1->len + str2->len) = '\0';           // make sure it is null terminated
+        str1->len += str2->len;                                // assign the new len
     }
 
     return str1; // return the str1 reference
@@ -274,21 +278,21 @@ CLib_String *CLib_String_concatCStrN(CLib_String *str1, char *str2, int count)
             divValue.quot++;
         }
 
-        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot; // set new buf_len
+        str1->buf_len = CLIB_BUF_CHUNK * divValue.quot;        // set new buf_len
         str1->str = (char *)realloc(str1->str, str1->buf_len); // allocate more memory
     }
 
     if (count < len2)
     {
         memcpy((str1->str + str1->len), str2, count); // assumes str1 has enough space
-        *(str1->str + str1->len + count) = '\0'; // make sure it is null terminated
-        str1->len += count; // assign the new len
+        *(str1->str + str1->len + count) = '\0';      // make sure it is null terminated
+        str1->len += count;                           // assign the new len
     }
     else
     {
         memcpy((str1->str + str1->len), str2, len2); // assumes str1 has enough space
-        *(str1->str + str1->len + len2) = '\0'; // make sure it is null terminated
-        str1->len += len2; // assign the new len
+        *(str1->str + str1->len + len2) = '\0';      // make sure it is null terminated
+        str1->len += len2;                           // assign the new len
     }
 
     return str1; // return the str1 reference
@@ -339,7 +343,7 @@ void CLib_String_tokenizer(CLib_String *original, CLib_String *prevToken, const 
  *        must be used in tandem with the .len member of CLib_String, to mark it as a view,
  *        the .buf_len parameter of CLib_String is set to 0 @n
  *        <b>Note: The returned CLib_String (view) `must not be freed` with CLib_String_deinit() calls, as it shares memory with *str</b>
- * 
+ *
  * @param str The CLib_String to extract the substring from
  * @param start The start location of the substring
  * @param length The length of the substring
@@ -351,14 +355,14 @@ CLib_String CLib_String_substrView(CLib_String *str, unsigned int start, unsigne
     {
         return (CLib_String){NULL, 0, 0};
     }
-    
+
     return (CLib_String){.str = str->str + start, .len = length, .buf_len = 0};
 }
 
 /**
  * @brief Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart
  *        CLib_String_substrView(), this must be freed with a call to CLib_String_deinit() call
- * 
+ *
  * @param str The CLib_String to extract the substring from
  * @param start The start location of the substring
  * @param length The length of the substring
@@ -370,13 +374,13 @@ CLib_String CLib_String_substr(CLib_String *str, unsigned int start, unsigned in
     {
         return (CLib_String){NULL, 0, 0};
     }
-    
+
     div_t divValue = div(length, CLIB_BUF_CHUNK);
     if (divValue.rem)
     {
         divValue.quot++;
     }
-    
+
     CLib_String substr;
     substr.buf_len = divValue.quot * CLIB_BUF_CHUNK;
     substr.str = (char *)malloc(substr.buf_len);
