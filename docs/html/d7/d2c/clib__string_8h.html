@@ -95,8 +95,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container to store the dynamic string ptr, length and buffer length <br  />
- Note: Do not edit any contents of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> struct, especially the buf_len content, it is required to safely free memory.  <a href="../../d0/d6f/struct_c_lib___string.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container to store the dynamic string ptr, length and buffer length.  <a href="../../d0/d6f/struct_c_lib___string.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -107,21 +106,19 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2fb388c8903ed61a63a6bdc825ee8284" id="r_a2fb388c8903ed61a63a6bdc825ee8284"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fb388c8903ed61a63a6bdc825ee8284">CLib_String_init</a> (const char *src)</td></tr>
-<tr class="memdesc:a2fb388c8903ed61a63a6bdc825ee8284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> struct with a heap alocated string with appropriate memory.  <br /></td></tr>
+<tr class="memdesc:a2fb388c8903ed61a63a6bdc825ee8284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> struct with a heap alocated string with appropriate memory.  <br /></td></tr>
 <tr class="separator:a2fb388c8903ed61a63a6bdc825ee8284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf3bafb1aeaaf146cb607dbf5169c91" id="r_aebf3bafb1aeaaf146cb607dbf5169c91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebf3bafb1aeaaf146cb607dbf5169c91">CLib_String_initN</a> (const char *src, int len)</td></tr>
-<tr class="memdesc:aebf3bafb1aeaaf146cb607dbf5169c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> struct with a length of len on a heap alocated string with appropriate memory.  <br /></td></tr>
+<tr class="memdesc:aebf3bafb1aeaaf146cb607dbf5169c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> struct with a length of len on a heap alocated string with appropriate memory.  <br /></td></tr>
 <tr class="separator:aebf3bafb1aeaaf146cb607dbf5169c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768f086802e3bfa844459eea78bfb033" id="r_a768f086802e3bfa844459eea78bfb033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a768f086802e3bfa844459eea78bfb033">CLib_String_deinit</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str)</td></tr>
-<tr class="memdesc:a768f086802e3bfa844459eea78bfb033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard call for cstd free for char *str, also sets the internal states to 0 <br  />
- Note: Calling deinit on a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> with buf_len = 0 (String View) has no dangers as it is checked for but not recommended.  <br /></td></tr>
+<tr class="memdesc:a768f086802e3bfa844459eea78bfb033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard call for cstd free for char *str, also sets the internal states to 0.  <br /></td></tr>
 <tr class="separator:a768f086802e3bfa844459eea78bfb033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b33cd7c04daaacaaf25b0c243ddd63" id="r_af3b33cd7c04daaacaaf25b0c243ddd63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3b33cd7c04daaacaaf25b0c243ddd63">CLib_String_reset</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str)</td></tr>
-<tr class="memdesc:af3b33cd7c04daaacaaf25b0c243ddd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the provided <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to empty state.  <br /></td></tr>
+<tr class="memdesc:af3b33cd7c04daaacaaf25b0c243ddd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the provided <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to empty state.  <br /></td></tr>
 <tr class="separator:af3b33cd7c04daaacaaf25b0c243ddd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8fd3ec06475484a8bb4d52b9f3211ff" id="r_af8fd3ec06475484a8bb4d52b9f3211ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8fd3ec06475484a8bb4d52b9f3211ff">CLib_String_copy</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str)</td></tr>
-<tr class="memdesc:af8fd3ec06475484a8bb4d52b9f3211ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an existing <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to a new <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> <br  />
- Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> is same as any other <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> and must be freed with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit(CLib_String *)</a> call.  <br /></td></tr>
+<tr class="memdesc:af8fd3ec06475484a8bb4d52b9f3211ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an existing <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to a new <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a>.  <br /></td></tr>
 <tr class="separator:af8fd3ec06475484a8bb4d52b9f3211ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addeb959ed3a10aa5bba20850b3818042" id="r_addeb959ed3a10aa5bba20850b3818042"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addeb959ed3a10aa5bba20850b3818042">CLib_String_concat</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str1, <a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str2)</td></tr>
 <tr class="memdesc:addeb959ed3a10aa5bba20850b3818042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates and possibly expands str1 with str2 and returns ref to str1.  <br /></td></tr>
@@ -136,14 +133,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:adf11da8437b0f2c97638722f96c9a2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates and possibly expands str1 with str2 and returns ref to str1 for count number of bytes also it automatically attaches a \0 character at the end of the string of str1.  <br /></td></tr>
 <tr class="separator:adf11da8437b0f2c97638722f96c9a2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13228bf9ed5787195cbe27ee19abb702" id="r_a13228bf9ed5787195cbe27ee19abb702"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13228bf9ed5787195cbe27ee19abb702">CLib_String_tokenizer</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *original, <a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *prevToken, const char *delim)</td></tr>
-<tr class="memdesc:a13228bf9ed5787195cbe27ee19abb702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenizes an instance of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> with the delimeters from char *delim string.  <br /></td></tr>
+<tr class="memdesc:a13228bf9ed5787195cbe27ee19abb702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenizes an instance of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> with the delimeters from char *delim string.  <br /></td></tr>
 <tr class="separator:a13228bf9ed5787195cbe27ee19abb702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e306a6ccb800f2a4246d0e02989663a" id="r_a4e306a6ccb800f2a4246d0e02989663a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a">CLib_String_substrView</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str, unsigned int start, unsigned int length)</td></tr>
-<tr class="memdesc:a4e306a6ccb800f2a4246d0e02989663a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> view of the substring part of the provided CLIB_String <em>str this view shares the same memory as *str and *may or may not be null terminated</em> must be used in tandem with the .len member of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a>, to mark it as a view, the .buf_len parameter of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> is set to 0 <br  />
- <b>Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> (view) <code>must not be freed</code> with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> calls, as it shares memory with *str</b>  <br /></td></tr>
+<tr class="memdesc:a4e306a6ccb800f2a4246d0e02989663a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> view of the substring part of the provided CLIB_String <em>str this view shares the same memory as *str and *may or may not be null terminated</em> must be used in tandem with the .len member of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a>, to mark it as a view, the .buf_len parameter of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> is set to 0.  <br /></td></tr>
 <tr class="separator:a4e306a6ccb800f2a4246d0e02989663a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94fc1596cce0203c01466acee55f121b" id="r_a94fc1596cce0203c01466acee55f121b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94fc1596cce0203c01466acee55f121b">CLib_String_substr</a> (<a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str, unsigned int start, unsigned int length)</td></tr>
-<tr class="memdesc:a94fc1596cce0203c01466acee55f121b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart <a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a" title="Returns a CLib_String view of the substring part of the provided CLIB_String str this view shares the...">CLib_String_substrView()</a>, this must be freed with a call to <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> call.  <br /></td></tr>
+<tr class="memdesc:a94fc1596cce0203c01466acee55f121b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart <a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a" title="Returns a CLib_String view of the substring part of the provided CLIB_String str this view shares the...">CLib_String_substrView()</a>, this must be freed with a call to <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit()</a> call.  <br /></td></tr>
 <tr class="separator:a94fc1596cce0203c01466acee55f121b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -318,15 +314,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Copies an existing <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to a new <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> <br  />
- Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> is same as any other <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> and must be freed with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit(CLib_String *)</a> call. </p>
+<p>Copies an existing <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to a new <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> is same as any other <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> and must be freed with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit(CLib_String *)</a> call</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> * to copy from </td></tr>
+    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> * to copy from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> copied to </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> copied to </dd></dl>
 
 </div>
 </div>
@@ -345,11 +341,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Standard call for cstd free for char *str, also sets the internal states to 0 <br  />
- Note: Calling deinit on a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> with buf_len = 0 (String View) has no dangers as it is checked for but not recommended. </p>
+<p>Standard call for cstd free for char *str, also sets the internal states to 0. </p>
+<dl class="section note"><dt>Note</dt><dd>Calling deinit on a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> with buf_len = 0 (String View) has no dangers as it is checked for but not recommended</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> ref to free </td></tr>
+    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> ref to free </td></tr>
   </table>
   </dd>
 </dl>
@@ -371,14 +367,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> struct with a heap alocated string with appropriate memory. </p>
+<p>Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> struct with a heap alocated string with appropriate memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>The source string to initialise with, must be null terminated, or else will lead to undefined behaviour </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The struct containing data about the string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The struct containing data about the string </dd></dl>
 
 </div>
 </div>
@@ -401,7 +397,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> struct with a length of len on a heap alocated string with appropriate memory. </p>
+<p>Initialises the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> struct with a length of len on a heap alocated string with appropriate memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>The source string to initialise with, must be null terminated, or else will lead to undefined behaviour </td></tr>
@@ -409,7 +405,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The struct containing data about the string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The struct containing data about the string </dd></dl>
 
 </div>
 </div>
@@ -428,7 +424,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Resets the provided <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to empty state. </p>
+<p>Resets the provided <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to empty state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>The CLiber_String pointer to the String </td></tr>
@@ -462,16 +458,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart <a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a" title="Returns a CLib_String view of the substring part of the provided CLIB_String str this view shares the...">CLib_String_substrView()</a>, this must be freed with a call to <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> call. </p>
+<p>Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart <a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a" title="Returns a CLib_String view of the substring part of the provided CLIB_String str this view shares the...">CLib_String_substrView()</a>, this must be freed with a call to <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit()</a> call. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to extract the substring from </td></tr>
+    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to extract the substring from </td></tr>
     <tr><td class="paramname">start</td><td>The start location of the substring </td></tr>
     <tr><td class="paramname">length</td><td>The length of the substring </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> containing the substring and its length, must be freed with a call to CLib_String_deinit(&amp;substr) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> containing the substring and its length, must be freed with a call to CLib_String_deinit(&amp;substr) </dd></dl>
 
 </div>
 </div>
@@ -499,17 +495,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> view of the substring part of the provided CLIB_String <em>str this view shares the same memory as *str and *may or may not be null terminated</em> must be used in tandem with the .len member of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a>, to mark it as a view, the .buf_len parameter of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> is set to 0 <br  />
- <b>Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> (view) <code>must not be freed</code> with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> calls, as it shares memory with *str</b> </p>
+<p>Returns a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> view of the substring part of the provided CLIB_String <em>str this view shares the same memory as *str and *may or may not be null terminated</em> must be used in tandem with the .len member of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a>, to mark it as a view, the .buf_len parameter of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> is set to 0. </p>
+<dl class="section note"><dt>Note</dt><dd>The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> (view) <code>must not be freed</code> with <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit()</a> calls, as it shares memory with *str, but doing so has no real dangers except for a wasteful call</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to extract the substring from </td></tr>
+    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to extract the substring from </td></tr>
     <tr><td class="paramname">start</td><td>The start location of the substring </td></tr>
     <tr><td class="paramname">length</td><td>The length of the substring </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a>(view, ie. .buf_len = 0, read above) containing the pointer to appropriate string and its length </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a>(view, ie. .buf_len = 0, read above) containing the pointer to appropriate string and its length </dd></dl>
 
 </div>
 </div>
@@ -537,12 +533,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tokenizes an instance of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> with the delimeters from char *delim string. </p>
+<p>Tokenizes an instance of <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> with the delimeters from char *delim string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">original</td><td>The original <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> * to read from, must be passed each call, and must not be changed during calls </td></tr>
-    <tr><td class="paramname">prevToken</td><td>The previous token read from the tokenizer, must be set to {NULL, 0, 0} initially to begin with the process, also this function is reentrant due to <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> *prevToken <br  />
- Node: During first call, prevToken len and buf_len may not be initialised </td></tr>
+    <tr><td class="paramname">original</td><td>The original <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> * to read from, must be passed each call, and must not be changed during calls </td></tr>
+    <tr><td class="paramname">prevToken</td><td>The previous token read from the tokenizer, must be set to {NULL, 0, 0} initially to begin with the process, also this function is reentrant due to <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> *prevToken </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>During first call, prevToken len and buf_len can be initialised </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">delim</td><td>The const char *delim string where each character is a delimeter </td></tr>
   </table>
   </dd>

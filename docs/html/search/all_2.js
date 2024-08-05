@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['clib_0',['CLib',['../index.html',1,'CLib'],['../index.html#autotoc_md3',1,'How to CLib?'],['../index.html#autotoc_md1',1,'Why CLib?']]],
+  ['clib_0',['CLib',['../index.html',1,'CLib'],['../index.html#autotoc_md4',1,'How to CLib?'],['../index.html#autotoc_md1',1,'Why CLib?']]],
   ['clib_5farr_5flen_1',['CLIB_ARR_LEN',['../d0/dc3/clib__macro_8h.html#a6827f33e4a531df5b6d6fc4e29622455',1,'clib_macro.h']]],
   ['clib_5fbuf_5fchunk_2',['CLIB_BUF_CHUNK',['../d7/d2c/clib__string_8h.html#aceb639e0bb362134c1d914c6e32a2ea0',1,'clib_string.h']]],
   ['clib_5fcontainer_5fof_3',['CLIB_CONTAINER_OF',['../d0/dc3/clib__macro_8h.html#a2a2533f9dbf64f590c2156da7671caae',1,'clib_macro.h']]],

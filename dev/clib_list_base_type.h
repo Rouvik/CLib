@@ -18,8 +18,8 @@
 #endif // CLib_List_ERROR_VALUE
 
 /**
- * @brief The list structure used to store the data of type TYPE as described in CLIB_LIST_SETUP(TYPE, ERROR_VALUE) macro and a pointer to next element @n
- *        Note: Dont edit the next pointer at all if you don't want to shoot yourself at foot
+ * @brief The list structure used to store the data of type TYPE as described in CLIB_LIST_SETUP(TYPE, ERROR_VALUE) macro and a pointer to next element
+ * @warning Dont edit the next pointer at all if you don't want to shoot yourself at foot
  */
 typedef struct CLib_List
 {
@@ -223,8 +223,8 @@ void CLib_List_insert(CLib_List_Root* root, CLib_List_TYPE data, unsigned int in
 }
 
 /**
- * @brief Returns the element contained by the list at a particular index @n
- *        Note: This function returns ERROR_VALUE incase of bad indexing which mush be checked by the end user
+ * @brief Returns the element contained by the list at a particular index
+ * @note  This function returns ERROR_VALUE incase of bad indexing which mush be checked by the end user
  * 
  * @param root The pointer to the CLib_List_Root to get from
  * @param index The index to fetch the data from

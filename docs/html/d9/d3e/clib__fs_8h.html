@@ -102,14 +102,13 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa5b4a96319eb3f23d2c0428af324c958" id="r_aa5b4a96319eb3f23d2c0428af324c958"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5b4a96319eb3f23d2c0428af324c958">CLib_Fs_dir</a> (const char *path, const char *mask, uint8_t mode, const char *delim)</td></tr>
-<tr class="memdesc:aa5b4a96319eb3f23d2c0428af324c958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a directory and prints its list of files and folders seperated by delim to a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> and returns it <br  />
- Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> must be freed with <a class="el" href="../../d7/d2c/clib__string_8h.html#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a>  <br /></td></tr>
+<tr class="memdesc:aa5b4a96319eb3f23d2c0428af324c958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a directory and prints its list of files and folders seperated by delim to a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> and returns it.  <br /></td></tr>
 <tr class="separator:aa5b4a96319eb3f23d2c0428af324c958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08bf60ebc120ebd3c88bdfa3e67fe064" id="r_a08bf60ebc120ebd3c88bdfa3e67fe064"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bf60ebc120ebd3c88bdfa3e67fe064">CLib_Fs_readFile</a> (const char *path, <a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *str)</td></tr>
-<tr class="memdesc:a08bf60ebc120ebd3c88bdfa3e67fe064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a file into a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> *str.  <br /></td></tr>
+<tr class="memdesc:a08bf60ebc120ebd3c88bdfa3e67fe064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a file into a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> *str.  <br /></td></tr>
 <tr class="separator:a08bf60ebc120ebd3c88bdfa3e67fe064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90944f98606d84af6abc6e47b6fea7f2" id="r_a90944f98606d84af6abc6e47b6fea7f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90944f98606d84af6abc6e47b6fea7f2">CLib_Fs_writeFile</a> (const char *path, <a class="el" href="../../d0/d6f/struct_c_lib___string.html">CLib_String</a> *contents, bool append)</td></tr>
-<tr class="memdesc:a90944f98606d84af6abc6e47b6fea7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronously writes a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to a file specified by const char *path.  <br /></td></tr>
+<tr class="memdesc:a90944f98606d84af6abc6e47b6fea7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronously writes a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to a file specified by const char *path.  <br /></td></tr>
 <tr class="separator:a90944f98606d84af6abc6e47b6fea7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0e3a8f1e30ceb170dca13c552edf94e" id="r_ab0e3a8f1e30ceb170dca13c552edf94e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0e3a8f1e30ceb170dca13c552edf94e">CLib_Fs_writeFileCStr</a> (const char *path, const char *contents, int length, bool append)</td></tr>
 <tr class="memdesc:ab0e3a8f1e30ceb170dca13c552edf94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronously writes a const char* to a file specified by const char *path.  <br /></td></tr>
@@ -179,8 +178,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Opens a directory and prints its list of files and folders seperated by delim to a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> and returns it <br  />
- Note: The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> must be freed with <a class="el" href="../../d7/d2c/clib__string_8h.html#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> </p>
+<p>Opens a directory and prints its list of files and folders seperated by delim to a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> and returns it. </p>
+<dl class="section note"><dt>Note</dt><dd>The returned <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> must be freed with <a class="el" href="../../d7/d2c/clib__string_8h.html#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path to the directory to open </td></tr>
@@ -190,7 +189,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> containing list of files and folders seperated by const char *delim </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> containing list of files and folders seperated by const char *delim </dd></dl>
 
 </div>
 </div>
@@ -213,15 +212,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a file into a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> *str. </p>
+<p>Reads a file into a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> *str. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path of file to read from </td></tr>
-    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to read to, must be initialised with <a class="el" href="../../d7/d2c/clib__string_8h.html#a2fb388c8903ed61a63a6bdc825ee8284" title="Initialises the CLib_String struct with a heap alocated string with appropriate memory.">CLib_String_init()</a> </td></tr>
+    <tr><td class="paramname">str</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to read to, must be initialised with <a class="el" href="../../d7/d2c/clib__string_8h.html#a2fb388c8903ed61a63a6bdc825ee8284" title="Initialises the CLib_String struct with a heap alocated string with appropriate memory.">CLib_String_init()</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true If the call FAILS and opening or reading file didnot suceed, the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> is usually in a corrupted state in this situation and must be freed with <a class="el" href="../../d7/d2c/clib__string_8h.html#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> </dd>
+<dl class="section return"><dt>Returns</dt><dd>true If the call FAILS and opening or reading file didnot suceed, the <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> is usually in a corrupted state in this situation and must be freed with <a class="el" href="../../d7/d2c/clib__string_8h.html#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0.">CLib_String_deinit()</a> </dd>
 <dd>
 false If the call suceeds </dd></dl>
 
@@ -251,11 +250,11 @@ false If the call suceeds </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Synchronously writes a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> to a file specified by const char *path. </p>
+<p>Synchronously writes a <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> to a file specified by const char *path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path of the file including file name to write to </td></tr>
-    <tr><td class="paramname">contents</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> containing the contents to write from </td></tr>
+    <tr><td class="paramname">contents</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> containing the contents to write from </td></tr>
     <tr><td class="paramname">append</td><td>If set to true, the contents are appended to file else content is overwritten on file </td></tr>
   </table>
   </dd>
@@ -299,7 +298,7 @@ false If call suceeds and file is written </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>The path of the file including file name to write to </td></tr>
-    <tr><td class="paramname">contents</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length   Note: Do not edit any contents ...">CLib_String</a> containing the contents to write from </td></tr>
+    <tr><td class="paramname">contents</td><td>The <a class="el" href="../../d0/d6f/struct_c_lib___string.html" title="Container to store the dynamic string ptr, length and buffer length.">CLib_String</a> containing the contents to write from </td></tr>
     <tr><td class="paramname">length</td><td>The length of the string contents to write, <b>If set to 0 then length is determined automatically</b> </td></tr>
     <tr><td class="paramname">append</td><td>If set to true, the contents are appended to file else content is overwritten on file </td></tr>
   </table>

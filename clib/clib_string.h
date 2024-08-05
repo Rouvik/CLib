@@ -39,8 +39,8 @@
 #endif // CLIB_BUF_CHUNK
 
 /**
- * @brief Container to store the dynamic string ptr, length and buffer length @n
- *        Note: Do not edit any contents of CLib_String struct, especially the buf_len content, it is required to safely free memory
+ * @brief Container to store the dynamic string ptr, length and buffer length
+ * @warning Do not edit any contents of CLib_String struct, especially the buf_len content, it is required to safely free memory
  */
 typedef struct
 {
@@ -122,8 +122,8 @@ CLib_String CLib_String_initN(const char *src, int len)
 }
 
 /**
- * @brief Standard call for cstd free for char *str, also sets the internal states to 0 @n
- *        Note: Calling deinit on a CLib_String with buf_len = 0 (String View) has no dangers as it is checked for but not recommended
+ * @brief Standard call for cstd free for char *str, also sets the internal states to 0
+ * @note Calling deinit on a CLib_String with buf_len = 0 (String View) has no dangers as it is checked for but not recommended
  *
  * @param str The CLib_String ref to free
  */
@@ -149,9 +149,8 @@ void CLib_String_reset(CLib_String *str)
 }
 
 /**
- * @brief Copies an existing CLib_String to a new CLib_String @n
- *        Note: The returned CLib_String is same as any other CLib_String and must be freed with
- *        CLib_String_deinit(CLib_String *) call
+ * @brief Copies an existing CLib_String to a new CLib_String
+ * @note  The returned CLib_String is same as any other CLib_String and must be freed with CLib_String_deinit(CLib_String *) call
  *
  * @param str The CLib_String * to copy from
  * @return CLib_String The CLib_String copied to
@@ -312,8 +311,8 @@ CLib_String *CLib_String_concatCStrN(CLib_String *str1, char *str2, int count)
  *
  * @param original The original CLib_String * to read from, must be passed each call, and must not be changed during calls
  * @param prevToken The previous token read from the tokenizer, must be set to {NULL, 0, 0} initially to begin with the process,
- *                  also this function is reentrant due to CLib_String *prevToken @n
- *                  Node: During first call, prevToken len and buf_len may not be initialised
+ *                  also this function is reentrant due to CLib_String *prevToken
+ * @note  During first call, prevToken len and buf_len can be initialised
  * @param delim The const char *delim string where each character is a delimeter
  */
 void CLib_String_tokenizer(CLib_String *original, CLib_String *prevToken, const char *delim)
@@ -350,8 +349,9 @@ void CLib_String_tokenizer(CLib_String *original, CLib_String *prevToken, const 
  * @brief Returns a CLib_String view of the substring part of the provided CLIB_String *str
  *        this view shares the same memory as *str and *may or may not be null terminated*
  *        must be used in tandem with the .len member of CLib_String, to mark it as a view,
- *        the .buf_len parameter of CLib_String is set to 0 @n
- *        <b>Note: The returned CLib_String (view) `must not be freed` with CLib_String_deinit() calls, as it shares memory with *str</b>
+ *        the .buf_len parameter of CLib_String is set to 0
+ *        
+ * @note  The returned CLib_String (view) `must not be freed` with CLib_String_deinit() calls, as it shares memory with *str, but doing so has no real dangers except for a wasteful call
  *
  * @param str The CLib_String to extract the substring from
  * @param start The start location of the substring

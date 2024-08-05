@@ -20,8 +20,7 @@ Adds file system support to CLib library.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\+\_\+\+Fs\+\_\+dir}} (const char \texorpdfstring{$\ast$}{*}path, const char \texorpdfstring{$\ast$}{*}mask, uint8\+\_\+t mode, const char \texorpdfstring{$\ast$}{*}delim)
-\begin{DoxyCompactList}\small\item\em Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it ~\newline
- Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\+\_\+\+Fs\+\_\+read\+File}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
 \begin{DoxyCompactList}\small\item\em Reads a file into a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*}str. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\+\_\+\+Fs\+\_\+write\+File}} (const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}contents, bool append)
@@ -68,9 +67,11 @@ Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+
 
 
 
-Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it ~\newline
- Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} 
+Opens a directory and prints its list of files and folders seperated by delim to a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and returns it. 
 
+\begin{DoxyNote}{Note}
+The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()}
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em path} & The path to the directory to open \\

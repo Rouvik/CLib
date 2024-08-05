@@ -40,8 +40,8 @@
 
 // definitions
 /**
- * @brief Opens a directory and prints its list of files and folders seperated by delim to a CLib_String and returns it @n
- *        Note: The returned CLib_String must be freed with CLib_String_deinit()
+ * @brief Opens a directory and prints its list of files and folders seperated by delim to a CLib_String and returns it
+ * @note  The returned CLib_String must be freed with CLib_String_deinit()
  * 
  * @param path The path to the directory to open
  * @param mask The file mask to filter through while writing, Examples: *.*(all files and folders), *.txt(all text), main.*(all files with name main like main.c, main.exe, main.s ...)

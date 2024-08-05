@@ -12,8 +12,7 @@ Adds dynamic string support to CLib library.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}}
-\begin{DoxyCompactList}\small\item\em Container to store the dynamic string ptr, length and buffer length ~\newline
- Note\+: Do not edit any contents of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} struct, especially the buf\+\_\+len content, it is required to safely free memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Container to store the dynamic string ptr, length and buffer length. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,13 +26,11 @@ struct \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}}
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_aebf3bafb1aeaaf146cb607dbf5169c91}{CLib\+\_\+\+String\+\_\+initN}} (const char \texorpdfstring{$\ast$}{*}src, int len)
 \begin{DoxyCompactList}\small\item\em Initialises the \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} struct with a length of len on a heap alocated string with appropriate memory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
-\begin{DoxyCompactList}\small\item\em Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0 ~\newline
- Note\+: Calling deinit on a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with buf\+\_\+len = 0 (String View) has no dangers as it is checked for but not recommended. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{clib__string_8h_af3b33cd7c04daaacaaf25b0c243ddd63}{CLib\+\_\+\+String\+\_\+reset}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
 \begin{DoxyCompactList}\small\item\em Resets the provided \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to empty state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_af8fd3ec06475484a8bb4d52b9f3211ff}{CLib\+\_\+\+String\+\_\+copy}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str)
-\begin{DoxyCompactList}\small\item\em Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} ~\newline
- Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is same as any other \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit(\+CLib\+\_\+\+String \texorpdfstring{$\ast$}{*})} call. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clib__string_8h_addeb959ed3a10aa5bba20850b3818042}{CLib\+\_\+\+String\+\_\+concat}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str1, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str2)
 \begin{DoxyCompactList}\small\item\em Concatenates and possibly expands str1 with str2 and returns ref to str1. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\+\_\+\+String\+\_\+concat\+CStr}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str1, const char \texorpdfstring{$\ast$}{*}str2)
@@ -45,8 +42,7 @@ void \mbox{\hyperlink{clib__string_8h_af3b33cd7c04daaacaaf25b0c243ddd63}{CLib\+\
 void \mbox{\hyperlink{clib__string_8h_a13228bf9ed5787195cbe27ee19abb702}{CLib\+\_\+\+String\+\_\+tokenizer}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}original, \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}prev\+Token, const char \texorpdfstring{$\ast$}{*}delim)
 \begin{DoxyCompactList}\small\item\em Tokenizes an instance of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with the delimeters from char \texorpdfstring{$\ast$}{*}delim string. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_a4e306a6ccb800f2a4246d0e02989663a}{CLib\+\_\+\+String\+\_\+substr\+View}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str, unsigned int start, unsigned int length)
-\begin{DoxyCompactList}\small\item\em Returns a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} view of the substring part of the provided CLIB\+\_\+\+String {\itshape str this view shares the same memory as \texorpdfstring{$\ast$}{*}str and \texorpdfstring{$\ast$}{*}may or may not be null terminated} must be used in tandem with the .len member of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}, to mark it as a view, the .buf\+\_\+len parameter of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is set to 0 ~\newline
- {\bfseries{Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} (view) {\ttfamily must not be freed} with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} calls, as it shares memory with \texorpdfstring{$\ast$}{*}str}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} view of the substring part of the provided CLIB\+\_\+\+String {\itshape str this view shares the same memory as \texorpdfstring{$\ast$}{*}str and \texorpdfstring{$\ast$}{*}may or may not be null terminated} must be used in tandem with the .len member of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}, to mark it as a view, the .buf\+\_\+len parameter of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is set to 0. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_a94fc1596cce0203c01466acee55f121b}{CLib\+\_\+\+String\+\_\+substr}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str, unsigned int start, unsigned int length)
 \begin{DoxyCompactList}\small\item\em Returns an actual allocated substring of the requested string with a valid .buf\+\_\+len instead of its View counterpart \doxylink{clib__string_8h_a4e306a6ccb800f2a4246d0e02989663a}{CLib\+\_\+\+String\+\_\+substr\+View()}, this must be freed with a call to \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} call. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -167,9 +163,11 @@ CLib\+\_\+\+String\texorpdfstring{$\ast$}{*} The reference to str1
 
 
 
-Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} ~\newline
- Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is same as any other \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit(\+CLib\+\_\+\+String \texorpdfstring{$\ast$}{*})} call. 
+Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}. 
 
+\begin{DoxyNote}{Note}
+The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is same as any other \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} and must be freed with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit(\+CLib\+\_\+\+String \texorpdfstring{$\ast$}{*})} call
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em str} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*} to copy from \\
@@ -186,9 +184,11 @@ Copies an existing \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a new
 
 
 
-Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0 ~\newline
- Note\+: Calling deinit on a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with buf\+\_\+len = 0 (String View) has no dangers as it is checked for but not recommended. 
+Standard call for cstd free for char \texorpdfstring{$\ast$}{*}str, also sets the internal states to 0. 
 
+\begin{DoxyNote}{Note}
+Calling deinit on a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} with buf\+\_\+len = 0 (String View) has no dangers as it is checked for but not recommended
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em str} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} ref to free \\
@@ -277,9 +277,11 @@ Returns an actual allocated substring of the requested string with a valid .buf\
 
 
 
-Returns a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} view of the substring part of the provided CLIB\+\_\+\+String {\itshape str this view shares the same memory as \texorpdfstring{$\ast$}{*}str and \texorpdfstring{$\ast$}{*}may or may not be null terminated} must be used in tandem with the .len member of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}, to mark it as a view, the .buf\+\_\+len parameter of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is set to 0 ~\newline
- {\bfseries{Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} (view) {\ttfamily must not be freed} with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} calls, as it shares memory with \texorpdfstring{$\ast$}{*}str}} 
+Returns a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} view of the substring part of the provided CLIB\+\_\+\+String {\itshape str this view shares the same memory as \texorpdfstring{$\ast$}{*}str and \texorpdfstring{$\ast$}{*}may or may not be null terminated} must be used in tandem with the .len member of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String}, to mark it as a view, the .buf\+\_\+len parameter of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} is set to 0. 
 
+\begin{DoxyNote}{Note}
+The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} (view) {\ttfamily must not be freed} with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} calls, as it shares memory with \texorpdfstring{$\ast$}{*}str, but doing so has no real dangers except for a wasteful call
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em str} & The \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to extract the substring from \\
@@ -306,9 +308,14 @@ Tokenizes an instance of \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} wi
 \begin{DoxyParams}{Parameters}
 {\em original} & The original \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*} to read from, must be passed each call, and must not be changed during calls \\
 \hline
-{\em prev\+Token} & The previous token read from the tokenizer, must be set to \{NULL, 0, 0\} initially to begin with the process, also this function is reentrant due to \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*}prev\+Token ~\newline
- Node\+: During first call, prev\+Token len and buf\+\_\+len may not be initialised \\
+{\em prev\+Token} & The previous token read from the tokenizer, must be set to \{NULL, 0, 0\} initially to begin with the process, also this function is reentrant due to \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} \texorpdfstring{$\ast$}{*}prev\+Token \\
 \hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+During first call, prev\+Token len and buf\+\_\+len can be initialised 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
 {\em delim} & The const char \texorpdfstring{$\ast$}{*}delim string where each character is a delimeter \\
 \hline
 \end{DoxyParams}

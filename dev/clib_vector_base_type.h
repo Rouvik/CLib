@@ -133,12 +133,11 @@ TYPE CLib_Vector_popFront(CLib_Vector_t *vector)
 }
 
 /**
- * @brief Inserts and sets (if the element is already present) to the CLib_Vector @n
- *        Behaviour Description:
+ * @brief Inserts and sets (if the element is already present) to the CLib_Vector
+ * @note  Behaviour Description:
  *          - If position is less than size: Sets the element at the position with the data
  *          - If position is greater than or equal to size: Adds 0 values to the uninitialised elements and sets the element at position
- *        @n
- *        Note: All of the above operations will resize the vector if required
+ *        @n <b>All of the above operations will resize the vector if required</b>
  * 
  * @param vector The pointer to the CLib_Vector to insert into
  * @param position The position to insert into

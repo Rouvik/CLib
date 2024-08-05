@@ -10,8 +10,7 @@ The dev base type code for templated \doxylink{clib__list_8h}{clib/clib\+\_\+lis
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_c_lib___list}{CLib\+\_\+\+List}}
-\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
- Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}}
 \begin{DoxyCompactList}\small\item\em The root struct containing the list data like size and pointer to its first node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
@@ -25,8 +24,7 @@ struct \mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root
 \begin{DoxyCompactItemize}
 \item 
 typedef struct \mbox{\hyperlink{struct_c_lib___list}{CLib\+\_\+\+List}} \mbox{\hyperlink{clib__list__base__type_8h_a64e7eaef685317211f668e35cdff1c93}{CLib\+\_\+\+List\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
- Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,8 +46,7 @@ void \mbox{\hyperlink{clib__list__base__type_8h_af01771d736dea27dfb471eb568d0f38
 \begin{DoxyCompactList}\small\item\em Inserts an element to a given index in \doxylink{struct_c_lib___list}{CLib\+\_\+\+List} ~\newline
  Behaviour Description\+: \end{DoxyCompactList}\item 
 \mbox{\hyperlink{clib__list__base__type_8h_a8cf7e2ac28100dba3b9b6aa8ed1048e7}{CLib\+\_\+\+List\+\_\+\+TYPE}} \mbox{\hyperlink{clib__list__base__type_8h_ae849b7e0ffe7d75e29f2354e6f04f1bf}{CLib\+\_\+\+List\+\_\+at}} (\mbox{\hyperlink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root}} \texorpdfstring{$\ast$}{*}root, int index)
-\begin{DoxyCompactList}\small\item\em Returns the element contained by the list at a particular index ~\newline
- Note\+: This function returns ERROR\+\_\+\+VALUE incase of bad indexing which mush be checked by the end user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the element contained by the list at a particular index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -90,9 +87,11 @@ Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+
 
 
 
-The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element ~\newline
- Note\+: Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot. 
+The list structure used to store the data of type TYPE as described in \doxylink{clib__list_8h_a42b63eae2f0d339bd532d860a213be2f}{CLIB\+\_\+\+LIST\+\_\+\+SETUP(\+TYPE, ERROR\+\_\+\+VALUE)} macro and a pointer to next element. 
 
+\begin{DoxyWarning}{Warning}
+Dont edit the next pointer at all if you don\textquotesingle{}t want to shoot yourself at foot 
+\end{DoxyWarning}
 
 
 \doxysubsection{Function Documentation}
@@ -104,9 +103,11 @@ The list structure used to store the data of type TYPE as described in \doxylink
 
 
 
-Returns the element contained by the list at a particular index ~\newline
- Note\+: This function returns ERROR\+\_\+\+VALUE incase of bad indexing which mush be checked by the end user. 
+Returns the element contained by the list at a particular index. 
 
+\begin{DoxyNote}{Note}
+This function returns ERROR\+\_\+\+VALUE incase of bad indexing which mush be checked by the end user
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
 {\em root} & The pointer to the \doxylink{struct_c_lib___list___root}{CLib\+\_\+\+List\+\_\+\+Root} to get from \\

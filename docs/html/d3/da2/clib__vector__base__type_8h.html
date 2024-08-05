@@ -136,8 +136,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:adc8a912ce5f1ecf5217b337c72260fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops off an element from the beginning of the list and returns it.  <br /></td></tr>
 <tr class="separator:adc8a912ce5f1ecf5217b337c72260fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb8671ae8f74e5892f73d2f797cff054" id="r_aeb8671ae8f74e5892f73d2f797cff054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb8671ae8f74e5892f73d2f797cff054">CLib_Vector_insert</a> (<a class="el" href="#a129e2b58d496da593ff9d6cfee43c29d">CLib_Vector_t</a> *vector, int position, <a class="el" href="#a5a392548f2df67370cb15d2a5d75cd7b">TYPE</a> data)</td></tr>
-<tr class="memdesc:aeb8671ae8f74e5892f73d2f797cff054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts and sets (if the element is already present) to the <a class="el" href="../../d8/dff/struct_c_lib___vector.html" title="The container for CLib_Vector storing the pointer to the underlying TYPE *data list,...">CLib_Vector</a> <br  />
- Behaviour Description:  <br /></td></tr>
+<tr class="memdesc:aeb8671ae8f74e5892f73d2f797cff054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts and sets (if the element is already present) to the <a class="el" href="../../d8/dff/struct_c_lib___vector.html" title="The container for CLib_Vector storing the pointer to the underlying TYPE *data list,...">CLib_Vector</a>.  <br /></td></tr>
 <tr class="separator:aeb8671ae8f74e5892f73d2f797cff054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f73571b1fb505612db0547783e49f3a" id="r_a2f73571b1fb505612db0547783e49f3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f73571b1fb505612db0547783e49f3a">CLib_Vector_reserve</a> (<a class="el" href="#a129e2b58d496da593ff9d6cfee43c29d">CLib_Vector_t</a> *vector, int expected_elements)</td></tr>
 <tr class="memdesc:a2f73571b1fb505612db0547783e49f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves the vector with an arbitary amount of expected_elements, this function can actually reserve for an arbitary size and not a multiple of CLIB_VECTOR_RESERVE.  <br /></td></tr>
@@ -326,13 +325,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inserts and sets (if the element is already present) to the <a class="el" href="../../d8/dff/struct_c_lib___vector.html" title="The container for CLib_Vector storing the pointer to the underlying TYPE *data list,...">CLib_Vector</a> <br  />
- Behaviour Description: </p>
-<ul>
+<p>Inserts and sets (if the element is already present) to the <a class="el" href="../../d8/dff/struct_c_lib___vector.html" title="The container for CLib_Vector storing the pointer to the underlying TYPE *data list,...">CLib_Vector</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>Behaviour Description:<ul>
 <li>If position is less than size: Sets the element at the position with the data</li>
 <li>If position is greater than or equal to size: Adds 0 values to the uninitialised elements and sets the element at position <br  />
- Note: All of the above operations will resize the vector if required</li>
+ <b>All of the above operations will resize the vector if required</b></li>
 </ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector</td><td>The pointer to the <a class="el" href="../../d8/dff/struct_c_lib___vector.html" title="The container for CLib_Vector storing the pointer to the underlying TYPE *data list,...">CLib_Vector</a> to insert into </td></tr>
