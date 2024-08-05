@@ -1,0 +1,71 @@
+\doxysection{clib/clib\+\_\+macro.h File Reference}
+\hypertarget{clib__macro_8h}{}\label{clib__macro_8h}\index{clib/clib\_macro.h@{clib/clib\_macro.h}}
+
+
+Adds simple yet useful macros to codebase.  
+
+
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a6827f33e4a531df5b6d6fc4e29622455}{CLIB\+\_\+\+ARR\+\_\+\+LEN}}(arr)~    (sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}))
+\begin{DoxyCompactList}\small\item\em Gets the length of a stack allocated array by performing sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}{CLIB\+\_\+\+OFFSET\+\_\+\+OF}}(type,  member)~    ((size\+\_\+t) \& (((type \texorpdfstring{$\ast$}{*})0)-\/$>$member))
+\begin{DoxyCompactList}\small\item\em Gets the offset of a member of a struct. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a2a2533f9dbf64f590c2156da7671caae}{CLIB\+\_\+\+CONTAINER\+\_\+\+OF}}(ptr,  type,  member)
+\begin{DoxyCompactList}\small\item\em Gets the parent pointer to a struct from a pointer to its member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adds simple yet useful macros to codebase. 
+
+\begin{DoxyAuthor}{Author}
+Rouvik Maji (\href{mailto:majirouvik@gmail.com}{\texttt{ majirouvik@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/08-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}} 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{clib__macro_8h_a6827f33e4a531df5b6d6fc4e29622455}\label{clib__macro_8h_a6827f33e4a531df5b6d6fc4e29622455} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_ARR\_LEN@{CLIB\_ARR\_LEN}}
+\index{CLIB\_ARR\_LEN@{CLIB\_ARR\_LEN}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_ARR\_LEN}{CLIB\_ARR\_LEN}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+ARR\+\_\+\+LEN(\begin{DoxyParamCaption}\item[{}]{arr }\end{DoxyParamCaption})~    (sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}))}
+
+
+
+Gets the length of a stack allocated array by performing sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}) 
+
+\Hypertarget{clib__macro_8h_a2a2533f9dbf64f590c2156da7671caae}\label{clib__macro_8h_a2a2533f9dbf64f590c2156da7671caae} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_CONTAINER\_OF@{CLIB\_CONTAINER\_OF}}
+\index{CLIB\_CONTAINER\_OF@{CLIB\_CONTAINER\_OF}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_CONTAINER\_OF}{CLIB\_CONTAINER\_OF}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+CONTAINER\+\_\+\+OF(\begin{DoxyParamCaption}\item[{}]{ptr,  }\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ (\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ typeof(((type\ *)0)-\/>member)\ *\_\_mptr\ =\ (ptr);\ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (type\ *)((\textcolor{keywordtype}{char}\ *)\_\_mptr\ -\/\ \mbox{\hyperlink{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}{CLIB\_OFFSET\_OF}}(type,\ member));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \})}
+
+\end{DoxyCode}
+
+
+Gets the parent pointer to a struct from a pointer to its member. 
+
+\Hypertarget{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}\label{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_OFFSET\_OF@{CLIB\_OFFSET\_OF}}
+\index{CLIB\_OFFSET\_OF@{CLIB\_OFFSET\_OF}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_OFFSET\_OF}{CLIB\_OFFSET\_OF}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+OFFSET\+\_\+\+OF(\begin{DoxyParamCaption}\item[{}]{type,  }\item[{}]{member }\end{DoxyParamCaption})~    ((size\+\_\+t) \& (((type \texorpdfstring{$\ast$}{*})0)-\/$>$member))}
+
+
+
+Gets the offset of a member of a struct. 
+

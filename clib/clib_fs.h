@@ -21,6 +21,14 @@
 #ifndef INCLUDED_CLIB_FS
 #define INCLUDED_CLIB_FS
 
+/**
+ * @file clib_fs.h
+ * @author Rouvik Maji (majirouvik@gmail.com)
+ * @brief Adds file system support to CLib library
+ * @date 2024-08-05
+ * 
+ * @copyright Copyright (c) 2024 GNU GPL <https://www.gnu.org/licenses/>
+ */
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>

@@ -1,5 +1,10 @@
 \doxysection{dev/clib\+\_\+vector\+\_\+base\+\_\+type.h File Reference}
 \hypertarget{clib__vector__base__type_8h}{}\label{clib__vector__base__type_8h}\index{dev/clib\_vector\_base\_type.h@{dev/clib\_vector\_base\_type.h}}
+
+
+The dev base type code for templated \doxylink{clib__vector_8h}{clib/clib\+\_\+vector.\+h}, any updates must be made here first and then converted to macro form for templating.  
+
+
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 \doxysubsubsection*{Data Structures}
@@ -44,6 +49,20 @@ void \mbox{\hyperlink{clib__vector__base__type_8h_a2f73571b1fb505612db0547783e49
 \begin{DoxyCompactList}\small\item\em Reserves the vector with an arbitary amount of expected\+\_\+elements, this function can actually reserve for an arbitary size and not a multiple of CLIB\+\_\+\+VECTOR\+\_\+\+RESERVE. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{clib__vector__base__type_8h_a74fa65717ed4f7bb0b4a8ea7ab173f6b}{CLib\+\_\+\+Vector\+\_\+fill}} (\mbox{\hyperlink{clib__vector__base__type_8h_a129e2b58d496da593ff9d6cfee43c29d}{CLib\+\_\+\+Vector\+\_\+t}} \texorpdfstring{$\ast$}{*}vector, \mbox{\hyperlink{clib__vector__base__type_8h_a5a392548f2df67370cb15d2a5d75cd7b}{TYPE}} value, unsigned int offset, unsigned int count)
 \begin{DoxyCompactList}\small\item\em Fills a part of the vector with a particular value and possibly resizes the vector to accomodate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The dev base type code for templated \doxylink{clib__vector_8h}{clib/clib\+\_\+vector.\+h}, any updates must be made here first and then converted to macro form for templating. 
+
+\begin{DoxyAuthor}{Author}
+Rouvik Maji (\href{mailto:majirouvik@gmail.com}{\texttt{ majirouvik@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/08-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}} 
+\end{DoxyCopyright}
 
 
 \doxysubsection{Macro Definition Documentation}

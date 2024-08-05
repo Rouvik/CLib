@@ -1,9 +1,19 @@
 #include <stdio.h>
 
-#include "clib/clib_fs.h"
+#include "clib/clib_macro.h"
 
 int main()
 {
-    CLib_Fs_writeFileCStr("./test.txt", "Created File from Raw! Waw!", 5, true);
+    typedef struct Test
+    {
+        int x;
+        char y;
+        int z;
+    } Test_t;
+    
+    Test_t s = {1, 'a', 5};
+
+    printf("%p %p\n", &s, CLIB_CONTAINER_OF(&(s.y), Test_t, y));
+
     return 0;
 }

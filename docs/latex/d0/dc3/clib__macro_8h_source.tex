@@ -1,0 +1,19 @@
+\doxysection{clib\+\_\+macro.\+h}
+\hypertarget{clib__macro_8h_source}{}\label{clib__macro_8h_source}\index{clib/clib\_macro.h@{clib/clib\_macro.h}}
+\mbox{\hyperlink{clib__macro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ CLIB\_ARR\_LEN(arr)\ \(\backslash\)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ (sizeof(arr)\ /\ sizeof(arr[0]))}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ CLIB\_OFFSET\_OF(type,\ member)\ \(\backslash\)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ ((size\_t)\ \&\ (((type\ *)0)-\/>member))}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CLIB\_CONTAINER\_OF(ptr,\ type,\ member)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ (\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ const\ typeof(((type\ *)0)-\/>member)\ *\_\_mptr\ =\ (ptr);\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (type\ *)((char\ *)\_\_mptr\ -\/\ CLIB\_OFFSET\_OF(type,\ member));\ \(\backslash\)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \})}}
+\DoxyCodeLine{00030\ }
+
+\end{DoxyCode}

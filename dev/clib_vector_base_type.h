@@ -1,3 +1,12 @@
+/**
+ * @file clib_vector_base_type.h
+ * @author Rouvik Maji (majirouvik@gmail.com)
+ * @brief The dev base type code for templated clib/clib_vector.h, any updates must be made here first and then converted to macro form for templating
+ * @date 2024-08-05
+ * 
+ * @copyright Copyright (c) 2024 GNU GPL <https://www.gnu.org/licenses/>
+ */
+
 #include <stdlib.h>
 #include <string.h>
 

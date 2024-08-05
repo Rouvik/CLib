@@ -1,5 +1,10 @@
 \doxysection{clib/clib\+\_\+fs.h File Reference}
 \hypertarget{clib__fs_8h}{}\label{clib__fs_8h}\index{clib/clib\_fs.h@{clib/clib\_fs.h}}
+
+
+Adds file system support to CLib library.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
@@ -23,6 +28,20 @@ bool \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\+\_\+\
 \begin{DoxyCompactList}\small\item\em Synchronously writes a \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} to a file specified by const char \texorpdfstring{$\ast$}{*}path. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\+\_\+\+Fs\+\_\+write\+File\+CStr}} (const char \texorpdfstring{$\ast$}{*}path, const char \texorpdfstring{$\ast$}{*}contents, int length, bool append)
 \begin{DoxyCompactList}\small\item\em Synchronously writes a const char\texorpdfstring{$\ast$}{*} to a file specified by const char \texorpdfstring{$\ast$}{*}path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adds file system support to CLib library. 
+
+\begin{DoxyAuthor}{Author}
+Rouvik Maji (\href{mailto:majirouvik@gmail.com}{\texttt{ majirouvik@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/08-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}} 
+\end{DoxyCopyright}
 
 
 \doxysubsection{Macro Definition Documentation}

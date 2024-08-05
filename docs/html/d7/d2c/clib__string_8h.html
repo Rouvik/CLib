@@ -83,6 +83,9 @@ $(function() {
   <div class="headertitle"><div class="title">clib_string.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Adds dynamic string support to CLib library.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
@@ -143,7 +146,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:a94fc1596cce0203c01466acee55f121b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an actual allocated substring of the requested string with a valid .buf_len instead of its View counterpart <a class="el" href="#a4e306a6ccb800f2a4246d0e02989663a" title="Returns a CLib_String view of the substring part of the provided CLIB_String str this view shares the...">CLib_String_substrView()</a>, this must be freed with a call to <a class="el" href="#a768f086802e3bfa844459eea78bfb033" title="Standard call for cstd free for char *str, also sets the internal states to 0   Note: Calling deinit ...">CLib_String_deinit()</a> call.  <br /></td></tr>
 <tr class="separator:a94fc1596cce0203c01466acee55f121b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Adds dynamic string support to CLib library. </p>
+<dl class="section author"><dt>Author</dt><dd>Rouvik Maji (<a href="#" onclick="location.href='mai'+'lto:'+'maj'+'ir'+'ouv'+'ik'+'@gm'+'ai'+'l.c'+'om'; return false;">majir<span class="obfuscator">.nosp@m.</span>ouvi<span class="obfuscator">.nosp@m.</span>k@gma<span class="obfuscator">.nosp@m.</span>il.c<span class="obfuscator">.nosp@m.</span>om</a>) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024-08-05</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 GNU GPL <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a> </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aceb639e0bb362134c1d914c6e32a2ea0" name="aceb639e0bb362134c1d914c6e32a2ea0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aceb639e0bb362134c1d914c6e32a2ea0">&#9670;&#160;</a></span>CLIB_BUF_CHUNK</h2>
 

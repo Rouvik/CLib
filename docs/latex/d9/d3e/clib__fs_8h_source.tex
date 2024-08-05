@@ -25,391 +25,391 @@
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ INCLUDED\_CLIB\_FS}}
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ INCLUDED\_CLIB\_FS}}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{clib__string_8h}{clib\_string.h}}"{}}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CLIB\_FS\_DIRMODE\_FILES\ (1)}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ CLIB\_FS\_DIRMODE\_FOLDERS\ (1\ <<\ 1)}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{comment}{//\ definitions}}
-\DoxyCodeLine{00044\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00054\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ }\textcolor{comment}{//\ systems\ with\ win\ api}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ PRINT\_LAST\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ DWORD\ err\ =\ GetLastError();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ LPSTR\ buffer\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ FormatMessageA(FORMAT\_MESSAGE\_ALLOCATE\_BUFFER\ |\ FORMAT\_MESSAGE\_FROM\_SYSTEM\ |\ FORMAT\_MESSAGE\_IGNORE\_INSERTS,\ NULL,\ err,\ MAKELANGID(LANG\_NEUTRAL,\ SUBLANG\_DEFAULT),\ (LPSTR)\ \&\ buffer,\ 0,\ NULL);\ \(\backslash\)}}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ fprintf(stderr,\ "{}Windows\ Error\ Msg:\ \%s\(\backslash\)n"{},\ buffer);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ LocalFree(buffer);}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#include\ <windows.h>}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
-\DoxyCodeLine{00092\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ WIN32\_FIND\_DATAA\ fdFile;}
-\DoxyCodeLine{00094\ \ \ \ \ HANDLE\ hFind\ =\ NULL;}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{comment}{//\ make\ sure\ mask\ is\ not\ error\ type}}
-\DoxyCodeLine{00097\ \ \ \ \ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ mask\ =\ \textcolor{stringliteral}{"{}*.*"{}};}
-\DoxyCodeLine{00099\ \ \ \ \ \}}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ pathLen\ =\ strlen(path);}
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ maskLen\ =\ strlen(mask);}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{clib__string_8h}{clib\_string.h}}"{}}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CLIB\_FS\_DIRMODE\_FILES\ (1)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ CLIB\_FS\_DIRMODE\_FOLDERS\ (1\ <<\ 1)}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ definitions}}
+\DoxyCodeLine{00052\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ }\textcolor{comment}{//\ systems\ with\ win\ api}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ PRINT\_LAST\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ DWORD\ err\ =\ GetLastError();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ LPSTR\ buffer\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ FormatMessageA(FORMAT\_MESSAGE\_ALLOCATE\_BUFFER\ |\ FORMAT\_MESSAGE\_FROM\_SYSTEM\ |\ FORMAT\_MESSAGE\_IGNORE\_INSERTS,\ NULL,\ err,\ MAKELANGID(LANG\_NEUTRAL,\ SUBLANG\_DEFAULT),\ (LPSTR)\ \&\ buffer,\ 0,\ NULL);\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ fprintf(stderr,\ "{}Windows\ Error\ Msg:\ \%s\(\backslash\)n"{},\ buffer);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ LocalFree(buffer);}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ WIN32\_FIND\_DATAA\ fdFile;}
+\DoxyCodeLine{00102\ \ \ \ \ HANDLE\ hFind\ =\ NULL;}
 \DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{char}\ cpyPath[pathLen\ +\ maskLen\ +\ 1];}
-\DoxyCodeLine{00105\ \ \ \ \ memcpy(cpyPath,\ path,\ pathLen);}
-\DoxyCodeLine{00106\ \ \ \ \ memcpy(cpyPath\ +\ pathLen,\ mask,\ maskLen\ +\ 1);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ output\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{if}\ ((hFind\ =\ FindFirstFileA(cpyPath,\ \&fdFile))\ ==\ INVALID\_HANDLE\_VALUE)}
-\DoxyCodeLine{00111\ \ \ \ \ \{}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CBuilder\ FS\ Error]\ Failed\ to\ open\ path\ \%s\(\backslash\)n"{}},\ cpyPath);}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(\&output);}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
-\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{comment}{//\ make\ sure\ mask\ is\ not\ error\ type}}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ mask\ =\ \textcolor{stringliteral}{"{}*.*"{}};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ pathLen\ =\ strlen(path);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ maskLen\ =\ strlen(mask);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{char}\ cpyPath[pathLen\ +\ maskLen\ +\ 1];}
+\DoxyCodeLine{00113\ \ \ \ \ memcpy(cpyPath,\ path,\ pathLen);}
+\DoxyCodeLine{00114\ \ \ \ \ memcpy(cpyPath\ +\ pathLen,\ mask,\ maskLen\ +\ 1);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ output\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ ((hFind\ =\ FindFirstFileA(cpyPath,\ \&fdFile))\ ==\ INVALID\_HANDLE\_VALUE)}
 \DoxyCodeLine{00119\ \ \ \ \ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((fdFile.cFileName[0]\ ==\ \textcolor{charliteral}{'.'})\ \&\&\ (fdFile.cFileName[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ fdFile.cFileName[1]\ ==\ \textcolor{charliteral}{'.'}))}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}{CLIB\_FS\_DIRMODE\_FOLDERS}})\ \&\&\ (fdFile.dwFileAttributes\ \&\ FILE\_ATTRIBUTE\_DIRECTORY))}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ fdFile.cFileName);}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}{CLIB\_FS\_DIRMODE\_FILES}}\ \&\&\ !(fdFile.dwFileAttributes\ \&\ FILE\_ATTRIBUTE\_DIRECTORY))}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ fdFile.cFileName);}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ (\textcolor{keywordtype}{char}\ *)delim);\ \textcolor{comment}{//\ add\ the\ ending\ delimeter}}
-\DoxyCodeLine{00135\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (FindNextFileA(hFind,\ \&fdFile));}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ \ \ FindClose(hFind);\ \textcolor{comment}{//\ cleanup}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{return}\ output;}
-\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CBuilder\ FS\ Error]\ Failed\ to\ open\ path\ \%s\(\backslash\)n"{}},\ cpyPath);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(\&output);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((fdFile.cFileName[0]\ ==\ \textcolor{charliteral}{'.'})\ \&\&\ (fdFile.cFileName[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ fdFile.cFileName[1]\ ==\ \textcolor{charliteral}{'.'}))}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}{CLIB\_FS\_DIRMODE\_FOLDERS}})\ \&\&\ (fdFile.dwFileAttributes\ \&\ FILE\_ATTRIBUTE\_DIRECTORY))}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ fdFile.cFileName);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}{CLIB\_FS\_DIRMODE\_FILES}}\ \&\&\ !(fdFile.dwFileAttributes\ \&\ FILE\_ATTRIBUTE\_DIRECTORY))}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ fdFile.cFileName);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
-\DoxyCodeLine{00143\ \{}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{char}\ chunk[\mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}];}
-\DoxyCodeLine{00145\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_READ,\ FILE\_SHARE\_READ,\ NULL,\ OPEN\_EXISTING,\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ (\textcolor{keywordtype}{char}\ *)delim);\ \textcolor{comment}{//\ add\ the\ ending\ delimeter}}
+\DoxyCodeLine{00143\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (FindNextFileA(hFind,\ \&fdFile));}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ FindClose(hFind);\ \textcolor{comment}{//\ cleanup}}
 \DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
-\DoxyCodeLine{00148\ \ \ \ \ \{}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00151\ \ \ \ \ \}}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \ \ \ \ LARGE\_INTEGER\ size;}
-\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (!GetFileSizeEx(hFile,\ \&size))}
-\DoxyCodeLine{00155\ \ \ \ \ \{}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ output;}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
+\DoxyCodeLine{00151\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{char}\ chunk[\mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}];}
+\DoxyCodeLine{00153\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_READ,\ FILE\_SHARE\_READ,\ NULL,\ OPEN\_EXISTING,\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
+\DoxyCodeLine{00156\ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
 \DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00159\ \ \ \ \ \}}
 \DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \ \ \ \ lldiv\_t\ divValue\ =\ lldiv(size.QuadPart,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ divValue.quot;\ i++)}
-\DoxyCodeLine{00164\ \ \ \ \ \{}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ReadFile(hFile,\ chunk,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}},\ NULL,\ NULL))}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ chunk);}
-\DoxyCodeLine{00173\ \ \ \ \ \}}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
-\DoxyCodeLine{00176\ \ \ \ \ \{}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ remainder[divValue.rem];}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ReadFile(hFile,\ remainder,\ divValue.rem,\ NULL,\ NULL))}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ remainder);}
-\DoxyCodeLine{00186\ \ \ \ \ \}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ success}}
-\DoxyCodeLine{00191\ \}}
+\DoxyCodeLine{00161\ \ \ \ \ LARGE\_INTEGER\ size;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (!GetFileSizeEx(hFile,\ \&size))}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ lldiv\_t\ divValue\ =\ lldiv(size.QuadPart,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ divValue.quot;\ i++)}
+\DoxyCodeLine{00172\ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ReadFile(hFile,\ chunk,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}},\ NULL,\ NULL))}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ chunk);}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
+\DoxyCodeLine{00184\ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ remainder[divValue.rem];}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ReadFile(hFile,\ remainder,\ divValue.rem,\ NULL,\ NULL))}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append)}
-\DoxyCodeLine{00194\ \{}
-\DoxyCodeLine{00195\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_WRITE,\ FILE\_SHARE\_READ\ |\ FILE\_SHARE\_WRITE,\ NULL,\ (append\ ?\ OPEN\_ALWAYS\ :\ CREATE\_ALWAYS),\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
-\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
-\DoxyCodeLine{00197\ \ \ \ \ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00200\ \ \ \ \ \}}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
-\DoxyCodeLine{00203\ \ \ \ \ \{}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ SetFilePointer(hFile,\ 0l,\ NULL,\ FILE\_END);}
-\DoxyCodeLine{00205\ \ \ \ \ \}}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \ \ \ \ DWORD\ bytesWritten;}
-\DoxyCodeLine{00208\ \ \ \ \ WriteFile(hFile,\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}},\ \&bytesWritten,\ NULL);}
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{if}\ (bytesWritten\ !=\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
-\DoxyCodeLine{00210\ \ \ \ \ \{}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00214\ \ \ \ \ \}}
-\DoxyCodeLine{00215\ }
-\DoxyCodeLine{00216\ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00218\ \}}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append)}
-\DoxyCodeLine{00221\ \{}
-\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{if}\ (!length)}
-\DoxyCodeLine{00223\ \ \ \ \ \{}
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ length\ =\ strlen(contents);}
-\DoxyCodeLine{00225\ \ \ \ \ \}}
-\DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_WRITE,\ FILE\_SHARE\_READ\ |\ FILE\_SHARE\_WRITE,\ NULL,\ (append\ ?\ OPEN\_ALWAYS\ :\ CREATE\_ALWAYS),\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
-\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
-\DoxyCodeLine{00229\ \ \ \ \ \{}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00232\ \ \ \ \ \}}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
-\DoxyCodeLine{00235\ \ \ \ \ \{}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ SetFilePointer(hFile,\ 0l,\ NULL,\ FILE\_END);}
-\DoxyCodeLine{00237\ \ \ \ \ \}}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ \ \ \ \ DWORD\ bytesWritten;}
-\DoxyCodeLine{00240\ \ \ \ \ WriteFile(hFile,\ contents,\ length,\ \&bytesWritten,\ NULL);}
-\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordflow}{if}\ (bytesWritten\ !=\ length)}
-\DoxyCodeLine{00242\ \ \ \ \ \{}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00246\ \ \ \ \ \}}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \ \ \ \ CloseHandle(hFile);}
-\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00250\ \}}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)\ ||\ defined(\_\_APPLE\_\_)\ ||\ defined(\_\_MACH\_\_)\ }\textcolor{comment}{//\ systems\ supporting\ dirent.h}}
-\DoxyCodeLine{00253\ }
-\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
-\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
-\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#include\ <errno.h>}}
-\DoxyCodeLine{00257\ }
-\DoxyCodeLine{00258\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
-\DoxyCodeLine{00259\ \{}
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ ==\ \textcolor{charliteral}{'/'})\ \textcolor{comment}{//\ if\ first\ character\ is\ /\ then\ ignore}}
-\DoxyCodeLine{00261\ \ \ \ \ \{}
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ mask++;}
-\DoxyCodeLine{00263\ \ \ \ \ \}}
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{struct\ }dirent\ *dirEntry;}
-\DoxyCodeLine{00266\ \ \ \ \ DIR\ *dir;}
-\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{struct\ }stat\ fileStatus;}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \ \ \ \ dir\ =\ opendir(path);}
-\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dir)}
-\DoxyCodeLine{00271\ \ \ \ \ \{}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ directory:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};\ \textcolor{comment}{//\ return\ nothing}}
-\DoxyCodeLine{00274\ \ \ \ \ \}}
-\DoxyCodeLine{00275\ }
-\DoxyCodeLine{00276\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ output\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{while}\ ((dirEntry\ =\ readdir(dir))\ !=\ NULL)}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ remainder);}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ success}}
+\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append)}
+\DoxyCodeLine{00202\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_WRITE,\ FILE\_SHARE\_READ\ |\ FILE\_SHARE\_WRITE,\ NULL,\ (append\ ?\ OPEN\_ALWAYS\ :\ CREATE\_ALWAYS),\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
+\DoxyCodeLine{00205\ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ SetFilePointer(hFile,\ 0l,\ NULL,\ FILE\_END);}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ DWORD\ bytesWritten;}
+\DoxyCodeLine{00216\ \ \ \ \ WriteFile(hFile,\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}},\ \&bytesWritten,\ NULL);}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{if}\ (bytesWritten\ !=\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
+\DoxyCodeLine{00218\ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append)}
+\DoxyCodeLine{00229\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{if}\ (!length)}
+\DoxyCodeLine{00231\ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ length\ =\ strlen(contents);}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ HANDLE\ hFile\ =\ CreateFileA(path,\ GENERIC\_WRITE,\ FILE\_SHARE\_READ\ |\ FILE\_SHARE\_WRITE,\ NULL,\ (append\ ?\ OPEN\_ALWAYS\ :\ CREATE\_ALWAYS),\ FILE\_ATTRIBUTE\_NORMAL,\ NULL);}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{if}\ (hFile\ ==\ INVALID\_HANDLE\_VALUE)}
+\DoxyCodeLine{00237\ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
+\DoxyCodeLine{00243\ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ SetFilePointer(hFile,\ 0l,\ NULL,\ FILE\_END);}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ DWORD\ bytesWritten;}
+\DoxyCodeLine{00248\ \ \ \ \ WriteFile(hFile,\ contents,\ length,\ \&bytesWritten,\ NULL);}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{if}\ (bytesWritten\ !=\ length)}
+\DoxyCodeLine{00250\ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ PRINT\_LAST\_ERROR}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ CloseHandle(hFile);}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)\ ||\ defined(\_\_APPLE\_\_)\ ||\ defined(\_\_MACH\_\_)\ }\textcolor{comment}{//\ systems\ supporting\ dirent.h}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__fs_8h_aa5b4a96319eb3f23d2c0428af324c958}{CLib\_Fs\_dir}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mask,\ uint8\_t\ mode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
+\DoxyCodeLine{00267\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ ==\ \textcolor{charliteral}{'/'})\ \textcolor{comment}{//\ if\ first\ character\ is\ /\ then\ ignore}}
+\DoxyCodeLine{00269\ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ mask++;}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{struct\ }dirent\ *dirEntry;}
+\DoxyCodeLine{00274\ \ \ \ \ DIR\ *dir;}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keyword}{struct\ }stat\ fileStatus;}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ dir\ =\ opendir(path);}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dir)}
 \DoxyCodeLine{00279\ \ \ \ \ \{}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ignore\ .\ and\ ..\ entries}}
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((dirEntry-\/>d\_name[0]\ ==\ \textcolor{charliteral}{'.'})\ \&\&\ (dirEntry-\/>d\_name[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ dirEntry-\/>d\_name[1]\ ==\ \textcolor{charliteral}{'.'}))}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ directory:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};\ \textcolor{comment}{//\ return\ nothing}}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ output\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{00285\ }
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *dotPos\ =\ strchr(mask,\ \textcolor{charliteral}{'.'})\ +\ 1;}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!dotPos)}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ dotPos\ =\ (\textcolor{keywordtype}{char}\ *)mask\ +\ strlen(mask);}
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *fileExt\ =\ strrchr(dirEntry-\/>d\_name,\ \textcolor{charliteral}{'.'})\ +\ 1;}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fileNameLen\ =\ fileExt\ -\/\ dirEntry-\/>d\_name\ -\/\ 1;}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileExt\ ==\ NULL\ +\ 1)}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dirLen\ =\ strlen(dirEntry-\/>d\_name);}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ fileExt\ =\ dirEntry-\/>d\_name\ +\ dirLen;}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ fileNameLen\ =\ dirLen;}
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *fileName;}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileExt\ ==\ dirEntry-\/>d\_name\ +\ 1)}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{while}\ ((dirEntry\ =\ readdir(dir))\ !=\ NULL)}
+\DoxyCodeLine{00287\ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ignore\ .\ and\ ..\ entries}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((dirEntry-\/>d\_name[0]\ ==\ \textcolor{charliteral}{'.'})\ \&\&\ (dirEntry-\/>d\_name[1]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ ||\ dirEntry-\/>d\_name[1]\ ==\ \textcolor{charliteral}{'.'}))}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *dotPos\ =\ strchr(mask,\ \textcolor{charliteral}{'.'})\ +\ 1;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!dotPos)}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ dotPos\ =\ (\textcolor{keywordtype}{char}\ *)mask\ +\ strlen(mask);}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *fileExt\ =\ strrchr(dirEntry-\/>d\_name,\ \textcolor{charliteral}{'.'})\ +\ 1;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fileNameLen\ =\ fileExt\ -\/\ dirEntry-\/>d\_name\ -\/\ 1;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileExt\ ==\ NULL\ +\ 1)}
 \DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ fileName\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ fileName\ =\ (\textcolor{keywordtype}{char}\ *)alloca(fileNameLen\ +\ 1);}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(fileName,\ dirEntry-\/>d\_name,\ fileNameLen);}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ fileName[fileNameLen]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00312\ }
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maskLen\ =\ strlen(mask);}
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ !=\ \textcolor{charliteral}{'*'}\ \&\&\ strncmp(mask,\ fileName,\ fileNameLen\ -\/\ 1))}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dirLen\ =\ strlen(dirEntry-\/>d\_name);}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ fileExt\ =\ dirEntry-\/>d\_name\ +\ dirLen;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ fileNameLen\ =\ dirLen;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *fileName;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileExt\ ==\ dirEntry-\/>d\_name\ +\ 1)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ fileName\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00318\ }
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dotPos[0]\ !=\ \textcolor{charliteral}{'*'}\ \&\&\ strcmp(dotPos,\ fileExt))}
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00323\ }
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ stat(dirEntry-\/>d\_name,\ \&fileStatus);}
-\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}{CLIB\_FS\_DIRMODE\_FOLDERS}})\ \&\&\ (fileStatus.st\_mode\ \&\ S\_IFDIR))}
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ dirEntry-\/>d\_name);}
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}{CLIB\_FS\_DIRMODE\_FILES}})\ \&\&\ !(fileStatus.st\_mode\ \&\ S\_IFDIR))}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ dirEntry-\/>d\_name);}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00333\ }
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ (\textcolor{keywordtype}{char}\ *)delim);}
-\DoxyCodeLine{00335\ \ \ \ \ \}}
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00337\ \ \ \ \ closedir(dir);\ \textcolor{comment}{//\ cleanup}}
-\DoxyCodeLine{00338\ }
-\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ output;}
-\DoxyCodeLine{00340\ \}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ fileName\ =\ (\textcolor{keywordtype}{char}\ *)alloca(fileNameLen\ +\ 1);}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(fileName,\ dirEntry-\/>d\_name,\ fileNameLen);}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ fileName[fileNameLen]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maskLen\ =\ strlen(mask);}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mask[0]\ !=\ \textcolor{charliteral}{'*'}\ \&\&\ strncmp(mask,\ fileName,\ fileNameLen\ -\/\ 1))}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dotPos[0]\ !=\ \textcolor{charliteral}{'*'}\ \&\&\ strcmp(dotPos,\ fileExt))}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ stat(dirEntry-\/>d\_name,\ \&fileStatus);}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a1b25b9653f8020895f0c0f77b88462d1}{CLIB\_FS\_DIRMODE\_FOLDERS}})\ \&\&\ (fileStatus.st\_mode\ \&\ S\_IFDIR))}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ dirEntry-\/>d\_name);}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((mode\ \&\ \mbox{\hyperlink{clib__fs_8h_a9e1254545ebf7fdc810092e79f9ffd85}{CLIB\_FS\_DIRMODE\_FILES}})\ \&\&\ !(fileStatus.st\_mode\ \&\ S\_IFDIR))}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ dirEntry-\/>d\_name);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
-\DoxyCodeLine{00343\ \{}
-\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{char}\ chunk[\mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}];}
-\DoxyCodeLine{00345\ \ \ \ \ FILE\ *file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\&output,\ (\textcolor{keywordtype}{char}\ *)delim);}
+\DoxyCodeLine{00343\ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ closedir(dir);\ \textcolor{comment}{//\ cleanup}}
 \DoxyCodeLine{00346\ }
-\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
-\DoxyCodeLine{00348\ \ \ \ \ \{}
-\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ error}}
-\DoxyCodeLine{00351\ \ \ \ \ \}}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00353\ \ \ \ \ fseek(file,\ 0L,\ SEEK\_END);}
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ length\ =\ ftell(file);}
-\DoxyCodeLine{00355\ \ \ \ \ rewind(file);}
-\DoxyCodeLine{00356\ }
-\DoxyCodeLine{00357\ \ \ \ \ div\_t\ divValue\ =\ div(length,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ divValue.quot;\ i++)}
-\DoxyCodeLine{00360\ \ \ \ \ \{}
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ fread(chunk,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}},\ 1,\ file);}
-\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ chunk);}
-\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordflow}{return}\ output;}
+\DoxyCodeLine{00348\ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a08bf60ebc120ebd3c88bdfa3e67fe064}{CLib\_Fs\_readFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
+\DoxyCodeLine{00351\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordtype}{char}\ chunk[\mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}];}
+\DoxyCodeLine{00353\ \ \ \ \ FILE\ *file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{00356\ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ error}}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ fseek(file,\ 0L,\ SEEK\_END);}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ length\ =\ ftell(file);}
+\DoxyCodeLine{00363\ \ \ \ \ rewind(file);}
 \DoxyCodeLine{00364\ }
-\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
-\DoxyCodeLine{00366\ \ \ \ \ \{}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ residual[divValue.rem];}
-\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ fread(residual,\ divValue.rem,\ 1,\ file);}
-\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ residual);}
-\DoxyCodeLine{00370\ \ \ \ \ \}}
-\DoxyCodeLine{00371\ }
-\DoxyCodeLine{00372\ \ \ \ \ fclose(file);}
-\DoxyCodeLine{00373\ }
-\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ success}}
-\DoxyCodeLine{00375\ \}}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00377\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append)}
-\DoxyCodeLine{00378\ \{}
-\DoxyCodeLine{00379\ \ \ \ \ FILE\ *file\ =\ NULL;}
-\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
-\DoxyCodeLine{00381\ \ \ \ \ \{}
-\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}a"{}});}
-\DoxyCodeLine{00383\ \ \ \ \ \}}
-\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00385\ \ \ \ \ \{}
-\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}w"{}});}
-\DoxyCodeLine{00387\ \ \ \ \ \}}
-\DoxyCodeLine{00388\ }
-\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
-\DoxyCodeLine{00390\ \ \ \ \ \{}
-\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00393\ \ \ \ \ \}}
-\DoxyCodeLine{00394\ }
-\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ fwrite(contents-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}},\ 1,\ file);}
-\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{if}\ (!count)}
-\DoxyCodeLine{00397\ \ \ \ \ \{}
-\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ fclose(file);}
-\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ write\ entire\ contents\ of\ string:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00365\ \ \ \ \ div\_t\ divValue\ =\ div(length,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ divValue.quot;\ i++)}
+\DoxyCodeLine{00368\ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ fread(chunk,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}},\ 1,\ file);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ chunk);}
+\DoxyCodeLine{00371\ \ \ \ \ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
+\DoxyCodeLine{00374\ \ \ \ \ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ residual[divValue.rem];}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ fread(residual,\ divValue.rem,\ 1,\ file);}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(str,\ residual);}
+\DoxyCodeLine{00378\ \ \ \ \ \}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ success}}
+\DoxyCodeLine{00383\ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_a90944f98606d84af6abc6e47b6fea7f2}{CLib\_Fs\_writeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *contents,\ \textcolor{keywordtype}{bool}\ append)}
+\DoxyCodeLine{00386\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ FILE\ *file\ =\ NULL;}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
+\DoxyCodeLine{00389\ \ \ \ \ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00393\ \ \ \ \ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{00398\ \ \ \ \ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00401\ \ \ \ \ \}}
 \DoxyCodeLine{00402\ }
-\DoxyCodeLine{00403\ \ \ \ \ fclose(file);}
-\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00405\ \}}
-\DoxyCodeLine{00406\ }
-\DoxyCodeLine{00407\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append)}
-\DoxyCodeLine{00408\ \{}
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{if}\ (!length)}
-\DoxyCodeLine{00410\ \ \ \ \ \{}
-\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ length\ =\ strlen(contents);}
-\DoxyCodeLine{00412\ \ \ \ \ \}}
-\DoxyCodeLine{00413\ }
-\DoxyCodeLine{00414\ \ \ \ \ FILE\ *file\ =\ NULL;}
-\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
-\DoxyCodeLine{00416\ \ \ \ \ \{}
-\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}ab"{}});}
-\DoxyCodeLine{00418\ \ \ \ \ \}}
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00420\ \ \ \ \ \{}
-\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}wb"{}});}
-\DoxyCodeLine{00422\ \ \ \ \ \}}
-\DoxyCodeLine{00423\ }
-\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
-\DoxyCodeLine{00425\ \ \ \ \ \{}
-\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00428\ \ \ \ \ \}}
-\DoxyCodeLine{00429\ }
-\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ fwrite(contents,\ length,\ 1,\ file);}
-\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordflow}{if}\ (!count)}
-\DoxyCodeLine{00432\ \ \ \ \ \{}
-\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ fclose(file);}
-\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ write\ entire\ contents\ of\ string:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
-\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ fwrite(contents-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ contents-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}},\ 1,\ file);}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{if}\ (!count)}
+\DoxyCodeLine{00405\ \ \ \ \ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ write\ entire\ contents\ of\ string:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00409\ \ \ \ \ \}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00413\ \}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{clib__fs_8h_ab0e3a8f1e30ceb170dca13c552edf94e}{CLib\_Fs\_writeFileCStr}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *contents,\ \textcolor{keywordtype}{int}\ length,\ \textcolor{keywordtype}{bool}\ append)}
+\DoxyCodeLine{00416\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{if}\ (!length)}
+\DoxyCodeLine{00418\ \ \ \ \ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ length\ =\ strlen(contents);}
+\DoxyCodeLine{00420\ \ \ \ \ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ FILE\ *file\ =\ NULL;}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordflow}{if}\ (append)}
+\DoxyCodeLine{00424\ \ \ \ \ \{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}ab"{}});}
+\DoxyCodeLine{00426\ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00428\ \ \ \ \ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ file\ =\ fopen(path,\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00430\ \ \ \ \ \}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{00433\ \ \ \ \ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ open\ file:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00436\ \ \ \ \ \}}
 \DoxyCodeLine{00437\ }
-\DoxyCodeLine{00438\ \ \ \ \ fclose(file);}
-\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00440\ \}}
-\DoxyCodeLine{00441\ }
-\DoxyCodeLine{00442\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ unsupported\ system}}
-\DoxyCodeLine{00443\ \textcolor{preprocessor}{\#error\ "{}[CLib\ FS]\ Unsupported\ system,\ if\ you\ know\ about\ your\ system,\ feel\ free\ to\ define\ \_WIN32\ for\ windows\ \_\_linux\_\_\ or\ \_\_APPLE\_\_\ or\ \_\_MACH\_\_\ for\ linux\ and\ mac\ systems"{}}}
-\DoxyCodeLine{00444\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ fwrite(contents,\ length,\ 1,\ file);}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{if}\ (!count)}
+\DoxyCodeLine{00440\ \ \ \ \ \{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}[CLib\ FS\ Error]\ Failed\ to\ write\ entire\ contents\ of\ string:\ \%s\(\backslash\)n"{}},\ strerror(errno));}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00444\ \ \ \ \ \}}
 \DoxyCodeLine{00445\ }
-\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INCLUDED\_CLIB\_FS}}
+\DoxyCodeLine{00446\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00448\ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ unsupported\ system}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#error\ "{}[CLib\ FS]\ Unsupported\ system,\ if\ you\ know\ about\ your\ system,\ feel\ free\ to\ define\ \_WIN32\ for\ windows\ \_\_linux\_\_\ or\ \_\_APPLE\_\_\ or\ \_\_MACH\_\_\ for\ linux\ and\ mac\ systems"{}}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INCLUDED\_CLIB\_FS}}
 
 \end{DoxyCode}

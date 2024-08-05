@@ -18,6 +18,18 @@
     Contact: majirouvik@gmail.com
 */
 
+/**
+ * @file clib_vector.h
+ * @author Rouvik Maji (majirouvik@gmail.com)
+ * @brief Adds template vector support to CLib library
+ *
+ * @note Documentation at: dev/clib_vector_base_type.h
+ *
+ * @date 2024-08-05
+ *
+ * @copyright Copyright (c) 2024 GNU GPL <https://www.gnu.org/licenses/>
+ */
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -69,7 +81,7 @@
         }                                                                                                               \
         else                                                                                                            \
         {                                                                                                               \
-            return ERROR_VALUE;                                                                                               \
+            return ERROR_VALUE;                                                                                         \
         }                                                                                                               \
     }                                                                                                                   \
                                                                                                                         \

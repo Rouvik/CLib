@@ -18,6 +18,15 @@
     Contact: majirouvik@gmail.com
 */
 
+/**
+ * @file clib_string.h
+ * @author Rouvik Maji (majirouvik@gmail.com)
+ * @brief Adds dynamic string support to CLib library
+ * @date 2024-08-05
+ * 
+ * @copyright Copyright (c) 2024 GNU GPL <https://www.gnu.org/licenses/>
+ */
+
 #ifndef INCLUDED_CLIB_STRING
 #define INCLUDED_CLIB_STRING
 

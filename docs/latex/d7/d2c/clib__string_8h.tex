@@ -1,5 +1,10 @@
 \doxysection{clib/clib\+\_\+string.h File Reference}
 \hypertarget{clib__string_8h}{}\label{clib__string_8h}\index{clib/clib\_string.h@{clib/clib\_string.h}}
+
+
+Adds dynamic string support to CLib library.  
+
+
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$ctype.\+h$>$}\newline
@@ -44,6 +49,20 @@ void \mbox{\hyperlink{clib__string_8h_a13228bf9ed5787195cbe27ee19abb702}{CLib\+\
  {\bfseries{Note\+: The returned \doxylink{struct_c_lib___string}{CLib\+\_\+\+String} (view) {\ttfamily must not be freed} with \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} calls, as it shares memory with \texorpdfstring{$\ast$}{*}str}} \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \mbox{\hyperlink{clib__string_8h_a94fc1596cce0203c01466acee55f121b}{CLib\+\_\+\+String\+\_\+substr}} (\mbox{\hyperlink{struct_c_lib___string}{CLib\+\_\+\+String}} \texorpdfstring{$\ast$}{*}str, unsigned int start, unsigned int length)
 \begin{DoxyCompactList}\small\item\em Returns an actual allocated substring of the requested string with a valid .buf\+\_\+len instead of its View counterpart \doxylink{clib__string_8h_a4e306a6ccb800f2a4246d0e02989663a}{CLib\+\_\+\+String\+\_\+substr\+View()}, this must be freed with a call to \doxylink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\+\_\+\+String\+\_\+deinit()} call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adds dynamic string support to CLib library. 
+
+\begin{DoxyAuthor}{Author}
+Rouvik Maji (\href{mailto:majirouvik@gmail.com}{\texttt{ majirouvik@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024-\/08-\/05
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 GNU GPL \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}} 
+\end{DoxyCopyright}
 
 
 \doxysubsection{Macro Definition Documentation}

@@ -18,6 +18,17 @@
     Contact: majirouvik@gmail.com
 */
 
+/**
+ * @file clib_list.h
+ * @author Rouvik Maji (majirouvik@gmail.com)
+ * @brief Adds template list support to CLib library
+ * 
+ * @note Documentation at: dev/clib_list_base_type.h
+ * 
+ * @date 2024-08-05
+ * 
+ * @copyright Copyright (c) 2024 GNU GPL <https://www.gnu.org/licenses/>
+ */
 #include <stdlib.h>
 
 #define CLIB_LIST_SETUP(TYPE, ERROR_VALUE)                                                       \

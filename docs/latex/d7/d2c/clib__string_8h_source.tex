@@ -22,281 +22,281 @@
 \DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ Contact:\ majirouvik@gmail.com}}
 \DoxyCodeLine{00019\ \textcolor{comment}{*/}}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ INCLUDED\_CLIB\_STRING}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ INCLUDED\_CLIB\_STRING}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ CLIB\_BUF\_CHUNK}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CLIB\_BUF\_CHUNK\ (256)}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIB\_BUF\_CHUNK}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};\ \ \ \textcolor{comment}{//\ heap\ allocated\ string}}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \ \ \ \ \textcolor{comment}{//\ length\ of\ string}}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}};\ \textcolor{comment}{//\ actual\ length\ of\ the\ buffer}}
-\DoxyCodeLine{00041\ \}\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00049\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src)}
-\DoxyCodeLine{00050\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count;}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ strlen(src);}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ 0)}
-\DoxyCodeLine{00054\ \ \ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ count\ =\ 1;}
-\DoxyCodeLine{00056\ \ \ \ \ \}}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00058\ \ \ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ count\ =\ divValue.quot;}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ for\ spill}}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ INCLUDED\_CLIB\_STRING}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ INCLUDED\_CLIB\_STRING}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ CLIB\_BUF\_CHUNK}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CLIB\_BUF\_CHUNK\ (256)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIB\_BUF\_CHUNK}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};\ \ \ \textcolor{comment}{//\ heap\ allocated\ string}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \ \ \ \ \textcolor{comment}{//\ length\ of\ string}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}};\ \textcolor{comment}{//\ actual\ length\ of\ the\ buffer}}
+\DoxyCodeLine{00050\ \}\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src)}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ strlen(src);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ 0)}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ count\ =\ 1;}
 \DoxyCodeLine{00065\ \ \ \ \ \}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ buf\_len\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ count;}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{char}\ *newMem\ =\ (\textcolor{keywordtype}{char}\ *)malloc(buf\_len);\ \textcolor{comment}{//\ generate\ and\ copy\ the\ provided\ string\ to\ heap\ string}}
-\DoxyCodeLine{00069\ \ \ \ \ memcpy(newMem,\ src,\ len\ +\ 1);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ newMem,}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ len,}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ buf\_len\};}
-\DoxyCodeLine{00075\ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00084\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_aebf3bafb1aeaaf146cb607dbf5169c91}{CLib\_String\_initN}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keywordtype}{int}\ len)}
-\DoxyCodeLine{00085\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count;}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ 0)}
-\DoxyCodeLine{00088\ \ \ \ \ \{}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ count\ =\ 1;}
-\DoxyCodeLine{00090\ \ \ \ \ \}}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00092\ \ \ \ \ \{}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ count\ =\ divValue.quot;}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ for\ spill}}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ count\ =\ divValue.quot;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ for\ spill}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ buf\_len\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ count;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{char}\ *newMem\ =\ (\textcolor{keywordtype}{char}\ *)malloc(buf\_len);\ \textcolor{comment}{//\ generate\ and\ copy\ the\ provided\ string\ to\ heap\ string}}
+\DoxyCodeLine{00078\ \ \ \ \ memcpy(newMem,\ src,\ len\ +\ 1);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ newMem,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ len,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ buf\_len\};}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00093\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_aebf3bafb1aeaaf146cb607dbf5169c91}{CLib\_String\_initN}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *src,\ \textcolor{keywordtype}{int}\ len)}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (len\ ==\ 0)}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ count\ =\ 1;}
 \DoxyCodeLine{00099\ \ \ \ \ \}}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ buf\_len\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ count;}
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{char}\ *newMem\ =\ (\textcolor{keywordtype}{char}\ *)malloc(buf\_len);\ \textcolor{comment}{//\ generate\ and\ copy\ the\ provided\ string\ to\ heap\ string}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ srcLen\ =\ strlen(src);}
-\DoxyCodeLine{00105\ \ \ \ \ memcpy(newMem,\ src,\ (srcLen\ >\ len\ ?\ len\ :\ srcLen)\ +\ 1);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ newMem[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ make\ sure\ the\ last\ bit\ is\ \(\backslash\)0}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ newMem,}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ len,}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ buf\_len\};}
-\DoxyCodeLine{00113\ \}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
-\DoxyCodeLine{00122\ \{}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}})}
-\DoxyCodeLine{00124\ \ \ \ \ \{}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ free(str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}});}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ 0;}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ 0;}
-\DoxyCodeLine{00128\ \ \ \ \ \}}
-\DoxyCodeLine{00129\ \}}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_af3b33cd7c04daaacaaf25b0c243ddd63}{CLib\_String\_reset}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
-\DoxyCodeLine{00137\ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(str);}
-\DoxyCodeLine{00139\ \ \ \ \ *str\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00140\ \}}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00150\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_af8fd3ec06475484a8bb4d52b9f3211ff}{CLib\_String\_copy}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
-\DoxyCodeLine{00151\ \{}
-\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ newStr;}
-\DoxyCodeLine{00153\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)malloc(str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ assign\ new\ memory\ on\ heap}}
-\DoxyCodeLine{00154\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ the\ buf\_len\ and\ len}}
-\DoxyCodeLine{00155\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ memcpy(newStr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ actually\ copy\ the\ string}}
-\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{return}\ newStr;}
-\DoxyCodeLine{00159\ \}}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00168\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_addeb959ed3a10aa5bba20850b3818042}{CLib\_String\_concat}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str2)}
-\DoxyCodeLine{00169\ \{}
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 2;}
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
-\DoxyCodeLine{00172\ \ \ \ \ \{}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
-\DoxyCodeLine{00181\ \ \ \ \ \}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 1);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \textcolor{comment}{//\ assign\ the\ new\ len}}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
-\DoxyCodeLine{00188\ \}}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00197\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str2)}
-\DoxyCodeLine{00198\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{int}\ len2\ =\ strlen(str2);}
-\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ len2\ +\ 2;}
-\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
-\DoxyCodeLine{00202\ \ \ \ \ \{}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
-\DoxyCodeLine{00211\ \ \ \ \ \}}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ len2\ +\ 1);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ len2;\ \textcolor{comment}{//\ assign\ the\ new\ length}}
-\DoxyCodeLine{00216\ }
-\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
-\DoxyCodeLine{00218\ \}}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00229\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_afed3a5089b712c0d268180f4a51fa054}{CLib\_String\_concatN}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str2,\ \textcolor{keywordtype}{int}\ count)}
-\DoxyCodeLine{00230\ \{}
-\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count\ +\ 2;}
-\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
-\DoxyCodeLine{00233\ \ \ \ \ \{}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
-\DoxyCodeLine{00242\ \ \ \ \ \}}
-\DoxyCodeLine{00243\ }
-\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ <\ str2-\/>len)}
-\DoxyCodeLine{00245\ \ \ \ \ \{}
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ count);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ count;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
-\DoxyCodeLine{00249\ \ \ \ \ \}}
-\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00251\ \ \ \ \ \{}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}});\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
-\DoxyCodeLine{00255\ \ \ \ \ \}}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
-\DoxyCodeLine{00258\ \}}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00269\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_adf11da8437b0f2c97638722f96c9a2b7}{CLib\_String\_concatCStrN}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \textcolor{keywordtype}{char}\ *str2,\ \textcolor{keywordtype}{int}\ count)}
-\DoxyCodeLine{00270\ \{}
-\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordtype}{int}\ len2\ =\ strlen(str2);}
-\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count\ +\ 2;}
-\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
-\DoxyCodeLine{00274\ \ \ \ \ \{}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00280\ }
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
-\DoxyCodeLine{00283\ \ \ \ \ \}}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ <\ len2)}
-\DoxyCodeLine{00286\ \ \ \ \ \{}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ count);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ count;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
-\DoxyCodeLine{00290\ \ \ \ \ \}}
-\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00292\ \ \ \ \ \{}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ len2);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ len2)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ len2;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
-\DoxyCodeLine{00296\ \ \ \ \ \}}
-\DoxyCodeLine{00297\ }
-\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
-\DoxyCodeLine{00299\ \}}
-\DoxyCodeLine{00300\ }
-\DoxyCodeLine{00310\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_a13228bf9ed5787195cbe27ee19abb702}{CLib\_String\_tokenizer}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *original,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *prevToken,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
-\DoxyCodeLine{00311\ \{}
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{if}\ (prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ ==\ NULL)\ \textcolor{comment}{//\ first\ time\ tokenize}}
-\DoxyCodeLine{00313\ \ \ \ \ \{}
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ original-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};}
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ 0;}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ 0;\ \textcolor{comment}{//\ assign\ the\ buffer\ length\ as\ 0\ this\ proves\ that\ this\ string\ is\ a\ container\ string}}
-\DoxyCodeLine{00317\ \ \ \ \ \}}
-\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00319\ \ \ \ \ \{}
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +=\ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 1;\ \textcolor{comment}{//\ update\ to\ new\ possible\ token\ location}}
-\DoxyCodeLine{00321\ \ \ \ \ \}}
-\DoxyCodeLine{00322\ }
-\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordtype}{char}\ *ptr\ =\ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};}
-\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordflow}{while}\ (strchr(delim,\ *ptr)\ !=\ NULL\ \&\&\ *ptr\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{comment}{//\ make\ sure\ ptr\ points\ to\ a\ valid\ string\ loc}}
-\DoxyCodeLine{00325\ \ \ \ \ \{}
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ ptr++;}
-\DoxyCodeLine{00327\ \ \ \ \ \}}
-\DoxyCodeLine{00328\ }
-\DoxyCodeLine{00329\ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ ptr;\ \textcolor{comment}{//\ assign\ the\ new\ pointer\ location\ to\ tokenize\ from}}
-\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ 0;}
-\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{while}\ (strchr(delim,\ *ptr)\ ==\ NULL\ \&\&\ ptr\ -\/\ original-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ <\ original-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
-\DoxyCodeLine{00332\ \ \ \ \ \{}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ len++;}
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ ptr++;}
-\DoxyCodeLine{00335\ \ \ \ \ \}}
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00337\ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ len;}
-\DoxyCodeLine{00338\ \}}
-\DoxyCodeLine{00339\ }
-\DoxyCodeLine{00352\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a4e306a6ccb800f2a4246d0e02989663a}{CLib\_String\_substrView}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length)}
-\DoxyCodeLine{00353\ \{}
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
-\DoxyCodeLine{00355\ \ \ \ \ \{}
-\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
-\DoxyCodeLine{00357\ \ \ \ \ \}}
-\DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ start,\ .len\ =\ length,\ .buf\_len\ =\ 0\};}
-\DoxyCodeLine{00360\ \}}
-\DoxyCodeLine{00361\ }
-\DoxyCodeLine{00371\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a94fc1596cce0203c01466acee55f121b}{CLib\_String\_substr}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length)}
-\DoxyCodeLine{00372\ \{}
-\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ +\ length\ >=\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
-\DoxyCodeLine{00374\ \ \ \ \ \{}
-\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
-\DoxyCodeLine{00376\ \ \ \ \ \}}
-\DoxyCodeLine{00377\ }
-\DoxyCodeLine{00378\ \ \ \ \ div\_t\ divValue\ =\ div(length,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
-\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
-\DoxyCodeLine{00380\ \ \ \ \ \{}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ divValue.quot++;}
-\DoxyCodeLine{00382\ \ \ \ \ \}}
-\DoxyCodeLine{00383\ }
-\DoxyCodeLine{00384\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ substr;}
-\DoxyCodeLine{00385\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ divValue.quot\ *\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}};}
-\DoxyCodeLine{00386\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)malloc(substr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});}
-\DoxyCodeLine{00387\ \ \ \ \ memcpy(substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ start,\ length);}
-\DoxyCodeLine{00388\ \ \ \ \ *(substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ length)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{00389\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ length;}
-\DoxyCodeLine{00390\ }
-\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{return}\ substr;}
-\DoxyCodeLine{00392\ \}}
-\DoxyCodeLine{00393\ }
-\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INCLUDED\_CLIB\_STRING}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ count\ =\ divValue.quot;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ for\ spill}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ buf\_len\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ count;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{char}\ *newMem\ =\ (\textcolor{keywordtype}{char}\ *)malloc(buf\_len);\ \textcolor{comment}{//\ generate\ and\ copy\ the\ provided\ string\ to\ heap\ string}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ srcLen\ =\ strlen(src);}
+\DoxyCodeLine{00114\ \ \ \ \ memcpy(newMem,\ src,\ (srcLen\ >\ len\ ?\ len\ :\ srcLen)\ +\ 1);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ newMem[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \textcolor{comment}{//\ make\ sure\ the\ last\ bit\ is\ \(\backslash\)0}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ newMem,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ len,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ buf\_len\};}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}})}
+\DoxyCodeLine{00133\ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ free(str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}});}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ 0;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ 0;}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_af3b33cd7c04daaacaaf25b0c243ddd63}{CLib\_String\_reset}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
+\DoxyCodeLine{00146\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{clib__string_8h_a768f086802e3bfa844459eea78bfb033}{CLib\_String\_deinit}}(str);}
+\DoxyCodeLine{00148\ \ \ \ \ *str\ =\ \mbox{\hyperlink{clib__string_8h_a2fb388c8903ed61a63a6bdc825ee8284}{CLib\_String\_init}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_af8fd3ec06475484a8bb4d52b9f3211ff}{CLib\_String\_copy}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str)}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ newStr;}
+\DoxyCodeLine{00162\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)malloc(str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ assign\ new\ memory\ on\ heap}}
+\DoxyCodeLine{00163\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ the\ buf\_len\ and\ len}}
+\DoxyCodeLine{00164\ \ \ \ \ newStr.\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ memcpy(newStr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ actually\ copy\ the\ string}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ newStr;}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00177\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_addeb959ed3a10aa5bba20850b3818042}{CLib\_String\_concat}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str2)}
+\DoxyCodeLine{00178\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 2;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
+\DoxyCodeLine{00181\ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 1);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \textcolor{comment}{//\ assign\ the\ new\ len}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
+\DoxyCodeLine{00197\ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00206\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_aa1b525649bf0d15010adc0d303fbdd39}{CLib\_String\_concatCStr}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str2)}
+\DoxyCodeLine{00207\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ len2\ =\ strlen(str2);}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ len2\ +\ 2;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ len2\ +\ 1);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ len2;\ \textcolor{comment}{//\ assign\ the\ new\ length}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
+\DoxyCodeLine{00227\ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00238\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_afed3a5089b712c0d268180f4a51fa054}{CLib\_String\_concatN}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str2,\ \textcolor{keywordtype}{int}\ count)}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count\ +\ 2;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
+\DoxyCodeLine{00242\ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ <\ str2-\/>len)}
+\DoxyCodeLine{00254\ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ count);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ count;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
+\DoxyCodeLine{00258\ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00260\ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}});\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ str2-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
+\DoxyCodeLine{00267\ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00278\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *\mbox{\hyperlink{clib__string_8h_adf11da8437b0f2c97638722f96c9a2b7}{CLib\_String\_concatCStrN}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str1,\ \textcolor{keywordtype}{char}\ *str2,\ \textcolor{keywordtype}{int}\ count)}
+\DoxyCodeLine{00279\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{int}\ len2\ =\ strlen(str2);}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count\ +\ 2;}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ <\ max\_len)\ \textcolor{comment}{//\ not\ enough\ size,\ first\ allocate\ memory\ for\ concat\ [+2\ for\ \(\backslash\)0\ chars]}}
+\DoxyCodeLine{00283\ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ div\_t\ divValue\ =\ div(max\_len,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)\ \textcolor{comment}{//\ allocate\ extra\ chunk\ for\ spill}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ divValue.quot++;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}}\ *\ divValue.quot;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ new\ buf\_len}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)realloc(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});\ \textcolor{comment}{//\ allocate\ more\ memory}}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ <\ len2)}
+\DoxyCodeLine{00295\ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ count);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ count)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ count;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00301\ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ memcpy((str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}),\ str2,\ len2);\ \textcolor{comment}{//\ assumes\ str1\ has\ enough\ space}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ *(str1-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ len2)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};\ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ it\ is\ null\ terminated}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ str1-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +=\ len2;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ new\ len}}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ str1;\ \textcolor{comment}{//\ return\ the\ str1\ reference}}
+\DoxyCodeLine{00308\ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00319\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{clib__string_8h_a13228bf9ed5787195cbe27ee19abb702}{CLib\_String\_tokenizer}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *original,\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *prevToken,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim)}
+\DoxyCodeLine{00320\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{if}\ (prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ ==\ NULL)\ \textcolor{comment}{//\ first\ time\ tokenize}}
+\DoxyCodeLine{00322\ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ original-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ 0;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ 0;\ \textcolor{comment}{//\ assign\ the\ buffer\ length\ as\ 0\ this\ proves\ that\ this\ string\ is\ a\ container\ string}}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00328\ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +=\ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ +\ 1;\ \textcolor{comment}{//\ update\ to\ new\ possible\ token\ location}}
+\DoxyCodeLine{00330\ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{char}\ *ptr\ =\ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}};}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{while}\ (strchr(delim,\ *ptr)\ !=\ NULL\ \&\&\ *ptr\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \textcolor{comment}{//\ make\ sure\ ptr\ points\ to\ a\ valid\ string\ loc}}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ ptr++;}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ ptr;\ \textcolor{comment}{//\ assign\ the\ new\ pointer\ location\ to\ tokenize\ from}}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{int}\ len\ =\ 0;}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{while}\ (strchr(delim,\ *ptr)\ ==\ NULL\ \&\&\ ptr\ -\/\ original-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ <\ original-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
+\DoxyCodeLine{00341\ \ \ \ \ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ len++;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ ptr++;}
+\DoxyCodeLine{00344\ \ \ \ \ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ prevToken-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ len;}
+\DoxyCodeLine{00347\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00361\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a4e306a6ccb800f2a4246d0e02989663a}{CLib\_String\_substrView}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length)}
+\DoxyCodeLine{00362\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
+\DoxyCodeLine{00364\ \ \ \ \ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ start,\ .len\ =\ length,\ .buf\_len\ =\ 0\};}
+\DoxyCodeLine{00369\ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00380\ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ \mbox{\hyperlink{clib__string_8h_a94fc1596cce0203c01466acee55f121b}{CLib\_String\_substr}}(\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ *str,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length)}
+\DoxyCodeLine{00381\ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ +\ length\ >=\ str-\/>\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}})}
+\DoxyCodeLine{00383\ \ \ \ \ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_c_lib___string}{CLib\_String}})\{NULL,\ 0,\ 0\};}
+\DoxyCodeLine{00385\ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ div\_t\ divValue\ =\ div(length,\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}});}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{if}\ (divValue.rem)}
+\DoxyCodeLine{00389\ \ \ \ \ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ divValue.quot++;}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \mbox{\hyperlink{struct_c_lib___string}{CLib\_String}}\ substr;}
+\DoxyCodeLine{00394\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}}\ =\ divValue.quot\ *\ \mbox{\hyperlink{clib__string_8h_aceb639e0bb362134c1d914c6e32a2ea0}{CLIB\_BUF\_CHUNK}};}
+\DoxyCodeLine{00395\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ =\ (\textcolor{keywordtype}{char}\ *)malloc(substr.\mbox{\hyperlink{struct_c_lib___string_a557e860c0421d13847c313cfdfd20637}{buf\_len}});}
+\DoxyCodeLine{00396\ \ \ \ \ memcpy(substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}},\ str-\/>\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ start,\ length);}
+\DoxyCodeLine{00397\ \ \ \ \ *(substr.\mbox{\hyperlink{struct_c_lib___string_aea06f670c008c54980db82cb6bd74125}{str}}\ +\ length)\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00398\ \ \ \ \ substr.\mbox{\hyperlink{struct_c_lib___string_a90577fa335d409f334bda992bc07b524}{len}}\ =\ length;}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{return}\ substr;}
+\DoxyCodeLine{00401\ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INCLUDED\_CLIB\_STRING}}
 
 \end{DoxyCode}
