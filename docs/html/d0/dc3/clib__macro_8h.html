@@ -84,7 +84,8 @@ $(function() {
 
 <p>Adds simple yet useful macros to codebase.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+</div>
 <p><a href="../../d0/dc3/clib__macro_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -92,12 +93,30 @@ Macros</h2></td></tr>
 <tr class="memitem:a6827f33e4a531df5b6d6fc4e29622455" id="r_a6827f33e4a531df5b6d6fc4e29622455"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6827f33e4a531df5b6d6fc4e29622455">CLIB_ARR_LEN</a>(arr)&#160;&#160;&#160;    (sizeof(arr) / sizeof(arr[0]))</td></tr>
 <tr class="memdesc:a6827f33e4a531df5b6d6fc4e29622455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the length of a stack allocated array by performing sizeof(arr) / sizeof(arr[0])  <br /></td></tr>
 <tr class="separator:a6827f33e4a531df5b6d6fc4e29622455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac860619f4e7b56f6c8e453e6b96bfef2" id="r_ac860619f4e7b56f6c8e453e6b96bfef2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac860619f4e7b56f6c8e453e6b96bfef2">CLIB_STRINGIFY</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr class="memdesc:ac860619f4e7b56f6c8e453e6b96bfef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative to #X in macros, used mainly for inner macro expansion and stringification.  <br /></td></tr>
+<tr class="separator:ac860619f4e7b56f6c8e453e6b96bfef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495ce77090620ce12f322ba04594c792" id="r_a495ce77090620ce12f322ba04594c792"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a495ce77090620ce12f322ba04594c792">CLIB_TOSTRING</a>(x)&#160;&#160;&#160;<a class="el" href="#ac860619f4e7b56f6c8e453e6b96bfef2">CLIB_STRINGIFY</a>(x)</td></tr>
+<tr class="memdesc:a495ce77090620ce12f322ba04594c792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a macro constant to string using inner macro expansion.  <br /></td></tr>
+<tr class="separator:a495ce77090620ce12f322ba04594c792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e4419a31fd2181eca2a2bc8efe3daf2" id="r_a0e4419a31fd2181eca2a2bc8efe3daf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e4419a31fd2181eca2a2bc8efe3daf2">CLIB_OFFSET_OF</a>(type,  member)&#160;&#160;&#160;    ((size_t) &amp; (((type *)0)-&gt;member))</td></tr>
 <tr class="memdesc:a0e4419a31fd2181eca2a2bc8efe3daf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the offset of a member of a struct.  <br /></td></tr>
 <tr class="separator:a0e4419a31fd2181eca2a2bc8efe3daf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a2533f9dbf64f590c2156da7671caae" id="r_a2a2533f9dbf64f590c2156da7671caae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a2533f9dbf64f590c2156da7671caae">CLIB_CONTAINER_OF</a>(ptr,  type,  member)</td></tr>
 <tr class="memdesc:a2a2533f9dbf64f590c2156da7671caae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the parent pointer to a struct from a pointer to its member.  <br /></td></tr>
 <tr class="separator:a2a2533f9dbf64f590c2156da7671caae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d77a0d28dd5f6a47124a503bed032de" id="r_a4d77a0d28dd5f6a47124a503bed032de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d77a0d28dd5f6a47124a503bed032de">CLIB_LOG</a>(tag,  message)&#160;&#160;&#160;puts(&quot;[&quot; #tag &quot; LOG] &quot; message);</td></tr>
+<tr class="memdesc:a4d77a0d28dd5f6a47124a503bed032de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic log function using puts, logs to stdout.  <br /></td></tr>
+<tr class="separator:a4d77a0d28dd5f6a47124a503bed032de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab942eaab68c964c5f47ca895ed3a501" id="r_aab942eaab68c964c5f47ca895ed3a501"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab942eaab68c964c5f47ca895ed3a501">CLIB_ERR</a>(tag,  message)&#160;&#160;&#160;fputs(&quot;[&quot; #tag &quot; ERROR] &quot; message &quot;\n&quot;, stderr);</td></tr>
+<tr class="memdesc:aab942eaab68c964c5f47ca895ed3a501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic log function using fputs, logs to stderr.  <br /></td></tr>
+<tr class="separator:aab942eaab68c964c5f47ca895ed3a501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aec87d9304718f846abedbe637af535" id="r_a0aec87d9304718f846abedbe637af535"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aec87d9304718f846abedbe637af535">CLIB_FLOG</a>(tag,  message)&#160;&#160;&#160;puts(&quot;At &quot; __FILE__ &quot;:&quot; <a class="el" href="#a495ce77090620ce12f322ba04594c792">CLIB_TOSTRING</a>(__LINE__) &quot; :: &quot; &quot;[&quot; #tag &quot; LOG] &quot; message);</td></tr>
+<tr class="memdesc:a0aec87d9304718f846abedbe637af535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs with file name and line number included to stdout using puts.  <br /></td></tr>
+<tr class="separator:a0aec87d9304718f846abedbe637af535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b1f1e56837d996f006180ea225e28c" id="r_ac6b1f1e56837d996f006180ea225e28c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6b1f1e56837d996f006180ea225e28c">CLIB_FERR</a>(tag,  message)&#160;&#160;&#160;fputs(&quot;At &quot; __FILE__ &quot;:&quot; <a class="el" href="#a495ce77090620ce12f322ba04594c792">CLIB_TOSTRING</a>(__LINE__) &quot; :: &quot; &quot;[&quot; #tag &quot; ERROR] &quot; message &quot;\n&quot;, stderr);</td></tr>
+<tr class="memdesc:ac6b1f1e56837d996f006180ea225e28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs with file name and line number included to stderr using fputs.  <br /></td></tr>
+<tr class="separator:ac6b1f1e56837d996f006180ea225e28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Adds simple yet useful macros to codebase. </p>
@@ -151,10 +170,111 @@ Macros</h2></td></tr>
 <div class="line">        <span class="keyword">const</span> typeof(((type *)0)-&gt;member) *__mptr = (ptr);       \</div>
 <div class="line">        (type *)((<span class="keywordtype">char</span> *)__mptr - <a class="code hl_define" href="#a0e4419a31fd2181eca2a2bc8efe3daf2">CLIB_OFFSET_OF</a>(type, member)); \</div>
 <div class="line">    })</div>
-<div class="ttc" id="aclib__macro_8h_html_a0e4419a31fd2181eca2a2bc8efe3daf2"><div class="ttname"><a href="#a0e4419a31fd2181eca2a2bc8efe3daf2">CLIB_OFFSET_OF</a></div><div class="ttdeci">#define CLIB_OFFSET_OF(type, member)</div><div class="ttdoc">Gets the offset of a member of a struct.</div><div class="ttdef"><b>Definition</b> clib_macro.h:19</div></div>
+<div class="ttc" id="aclib__macro_8h_html_a0e4419a31fd2181eca2a2bc8efe3daf2"><div class="ttname"><a href="#a0e4419a31fd2181eca2a2bc8efe3daf2">CLIB_OFFSET_OF</a></div><div class="ttdeci">#define CLIB_OFFSET_OF(type, member)</div><div class="ttdoc">Gets the offset of a member of a struct.</div><div class="ttdef"><b>Definition</b> clib_macro.h:31</div></div>
 </div><!-- fragment -->
 <p>Gets the parent pointer to a struct from a pointer to its member. </p>
 
+</div>
+</div>
+<a id="aab942eaab68c964c5f47ca895ed3a501" name="aab942eaab68c964c5f47ca895ed3a501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab942eaab68c964c5f47ca895ed3a501">&#9670;&#160;</a></span>CLIB_ERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_ERR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">tag, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)&#160;&#160;&#160;fputs(&quot;[&quot; #tag &quot; ERROR] &quot; message &quot;\n&quot;, stderr);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic log function using fputs, logs to stderr. </p>
+<div class="fragment"><div class="line"><a class="code hl_define" href="#aab942eaab68c964c5f47ca895ed3a501">CLIB_ERR</a>(DEFAULT, <span class="stringliteral">&quot;Some message&quot;</span>) =&gt; [DEFAULT <a class="code hl_define" href="../../d3/da2/clib__vector__base__type_8h.html#a8fe83ac76edc595f6b98cd4a4127aed5">ERROR</a>] Some message</div>
+<div class="ttc" id="aclib__macro_8h_html_aab942eaab68c964c5f47ca895ed3a501"><div class="ttname"><a href="#aab942eaab68c964c5f47ca895ed3a501">CLIB_ERR</a></div><div class="ttdeci">#define CLIB_ERR(tag, message)</div><div class="ttdoc">Basic log function using fputs, logs to stderr.</div><div class="ttdef"><b>Definition</b> clib_macro.h:58</div></div>
+<div class="ttc" id="aclib__vector__base__type_8h_html_a8fe83ac76edc595f6b98cd4a4127aed5"><div class="ttname"><a href="../../d3/da2/clib__vector__base__type_8h.html#a8fe83ac76edc595f6b98cd4a4127aed5">ERROR</a></div><div class="ttdeci">#define ERROR</div><div class="ttdef"><b>Definition</b> clib_vector_base_type.h:20</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ac6b1f1e56837d996f006180ea225e28c" name="ac6b1f1e56837d996f006180ea225e28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b1f1e56837d996f006180ea225e28c">&#9670;&#160;</a></span>CLIB_FERR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_FERR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">tag, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)&#160;&#160;&#160;fputs(&quot;At &quot; __FILE__ &quot;:&quot; <a class="el" href="#a495ce77090620ce12f322ba04594c792">CLIB_TOSTRING</a>(__LINE__) &quot; :: &quot; &quot;[&quot; #tag &quot; ERROR] &quot; message &quot;\n&quot;, stderr);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs with file name and line number included to stderr using fputs. </p>
+<div class="fragment"><div class="line"><a class="code hl_define" href="#ac6b1f1e56837d996f006180ea225e28c">CLIB_FERR</a>(DEFAULT, <span class="stringliteral">&quot;Some message&quot;</span>) =&gt; At main.c:7 :: [DEFAULT <a class="code hl_define" href="../../d3/da2/clib__vector__base__type_8h.html#a8fe83ac76edc595f6b98cd4a4127aed5">ERROR</a>] Some message</div>
+<div class="ttc" id="aclib__macro_8h_html_ac6b1f1e56837d996f006180ea225e28c"><div class="ttname"><a href="#ac6b1f1e56837d996f006180ea225e28c">CLIB_FERR</a></div><div class="ttdeci">#define CLIB_FERR(tag, message)</div><div class="ttdoc">Logs with file name and line number included to stderr using fputs.</div><div class="ttdef"><b>Definition</b> clib_macro.h:76</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a0aec87d9304718f846abedbe637af535" name="a0aec87d9304718f846abedbe637af535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aec87d9304718f846abedbe637af535">&#9670;&#160;</a></span>CLIB_FLOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_FLOG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">tag, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)&#160;&#160;&#160;puts(&quot;At &quot; __FILE__ &quot;:&quot; <a class="el" href="#a495ce77090620ce12f322ba04594c792">CLIB_TOSTRING</a>(__LINE__) &quot; :: &quot; &quot;[&quot; #tag &quot; LOG] &quot; message);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs with file name and line number included to stdout using puts. </p>
+<div class="fragment"><div class="line"><a class="code hl_define" href="#a0aec87d9304718f846abedbe637af535">CLIB_FLOG</a>(DEFAULT, <span class="stringliteral">&quot;Some message&quot;</span>) =&gt; At main.c:7 :: [DEFAULT LOG] Some message</div>
+<div class="ttc" id="aclib__macro_8h_html_a0aec87d9304718f846abedbe637af535"><div class="ttname"><a href="#a0aec87d9304718f846abedbe637af535">CLIB_FLOG</a></div><div class="ttdeci">#define CLIB_FLOG(tag, message)</div><div class="ttdoc">Logs with file name and line number included to stdout using puts.</div><div class="ttdef"><b>Definition</b> clib_macro.h:67</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a4d77a0d28dd5f6a47124a503bed032de" name="a4d77a0d28dd5f6a47124a503bed032de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d77a0d28dd5f6a47124a503bed032de">&#9670;&#160;</a></span>CLIB_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_LOG</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">tag, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">message</span>&#160;)&#160;&#160;&#160;puts(&quot;[&quot; #tag &quot; LOG] &quot; message);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic log function using puts, logs to stdout. </p>
+<div class="fragment"><div class="line"><a class="code hl_define" href="#a4d77a0d28dd5f6a47124a503bed032de">CLIB_LOG</a>(DEFAULT, <span class="stringliteral">&quot;Some message&quot;</span>) =&gt; [DEFAULT LOG] Some message</div>
+<div class="ttc" id="aclib__macro_8h_html_a4d77a0d28dd5f6a47124a503bed032de"><div class="ttname"><a href="#a4d77a0d28dd5f6a47124a503bed032de">CLIB_LOG</a></div><div class="ttdeci">#define CLIB_LOG(tag, message)</div><div class="ttdoc">Basic log function using puts, logs to stdout.</div><div class="ttdef"><b>Definition</b> clib_macro.h:49</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a0e4419a31fd2181eca2a2bc8efe3daf2" name="a0e4419a31fd2181eca2a2bc8efe3daf2"></a>
@@ -177,6 +297,44 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the offset of a member of a struct. </p>
+
+</div>
+</div>
+<a id="ac860619f4e7b56f6c8e453e6b96bfef2" name="ac860619f4e7b56f6c8e453e6b96bfef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac860619f4e7b56f6c8e453e6b96bfef2">&#9670;&#160;</a></span>CLIB_STRINGIFY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_STRINGIFY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An alternative to #X in macros, used mainly for inner macro expansion and stringification. </p>
+
+</div>
+</div>
+<a id="a495ce77090620ce12f322ba04594c792" name="a495ce77090620ce12f322ba04594c792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a495ce77090620ce12f322ba04594c792">&#9670;&#160;</a></span>CLIB_TOSTRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLIB_TOSTRING</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname">x</span></td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="#ac860619f4e7b56f6c8e453e6b96bfef2">CLIB_STRINGIFY</a>(x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a macro constant to string using inner macro expansion. </p>
 
 </div>
 </div>

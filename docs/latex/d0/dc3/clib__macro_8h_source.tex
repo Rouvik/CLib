@@ -3,17 +3,34 @@
 \mbox{\hyperlink{clib__macro_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ CLIB\_ARR\_LEN(arr)\ \(\backslash\)}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ (sizeof(arr)\ /\ sizeof(arr[0]))}}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ CLIB\_OFFSET\_OF(type,\ member)\ \(\backslash\)}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ ((size\_t)\ \&\ (((type\ *)0)-\/>member))}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CLIB\_CONTAINER\_OF(ptr,\ type,\ member)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ (\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ const\ typeof(((type\ *)0)-\/>member)\ *\_\_mptr\ =\ (ptr);\ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (type\ *)((char\ *)\_\_mptr\ -\/\ CLIB\_OFFSET\_OF(type,\ member));\ \(\backslash\)}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \})}}
-\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ CLIB\_ARR\_LEN(arr)\ \(\backslash\)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ (sizeof(arr)\ /\ sizeof(arr[0]))}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ CLIB\_STRINGIFY(x)\ \#x}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ CLIB\_TOSTRING(x)\ CLIB\_STRINGIFY(x)}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ CLIB\_OFFSET\_OF(type,\ member)\ \(\backslash\)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ ((size\_t)\ \&\ (((type\ *)0)-\/>member))}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CLIB\_CONTAINER\_OF(ptr,\ type,\ member)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ (\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ const\ typeof(((type\ *)0)-\/>member)\ *\_\_mptr\ =\ (ptr);\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (type\ *)((char\ *)\_\_mptr\ -\/\ CLIB\_OFFSET\_OF(type,\ member));\ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \})}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ CLIB\_LOG(tag,\ message)\ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{puts("{}["{}\ \#tag\ "{}\ LOG]\ "{}\ message);}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CLIB\_ERR(tag,\ message)\ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{fputs("{}["{}\ \#tag\ "{}\ ERROR]\ "{}\ message\ "{}\(\backslash\)n"{},\ stderr);}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ CLIB\_FLOG(tag,\ message)\ \(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{puts("{}At\ "{}\ \_\_FILE\_\_\ "{}:"{}\ CLIB\_TOSTRING(\_\_LINE\_\_)\ "{}\ ::\ "{}\ "{}["{}\ \#tag\ "{}\ LOG]\ "{}\ message);}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ CLIB\_FERR(tag,\ message)\ \(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{fputs("{}At\ "{}\ \_\_FILE\_\_\ "{}:"{}\ CLIB\_TOSTRING(\_\_LINE\_\_)\ "{}\ ::\ "{}\ "{}["{}\ \#tag\ "{}\ ERROR]\ "{}\ message\ "{}\(\backslash\)n"{},\ stderr);}}
 
 \end{DoxyCode}

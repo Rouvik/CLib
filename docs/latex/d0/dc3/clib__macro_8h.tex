@@ -5,15 +5,28 @@
 Adds simple yet useful macros to codebase.  
 
 
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{clib__macro_8h_a6827f33e4a531df5b6d6fc4e29622455}{CLIB\+\_\+\+ARR\+\_\+\+LEN}}(arr)~    (sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}))
 \begin{DoxyCompactList}\small\item\em Gets the length of a stack allocated array by performing sizeof(arr) / sizeof(arr\mbox{[}0\mbox{]}) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_ac860619f4e7b56f6c8e453e6b96bfef2}{CLIB\+\_\+\+STRINGIFY}}(x)~\#x
+\begin{DoxyCompactList}\small\item\em An alternative to \#X in macros, used mainly for inner macro expansion and stringification. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a495ce77090620ce12f322ba04594c792}{CLIB\+\_\+\+TOSTRING}}(x)~\mbox{\hyperlink{clib__macro_8h_ac860619f4e7b56f6c8e453e6b96bfef2}{CLIB\+\_\+\+STRINGIFY}}(x)
+\begin{DoxyCompactList}\small\item\em Converts a macro constant to string using inner macro expansion. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}{CLIB\+\_\+\+OFFSET\+\_\+\+OF}}(type,  member)~    ((size\+\_\+t) \& (((type \texorpdfstring{$\ast$}{*})0)-\/$>$member))
 \begin{DoxyCompactList}\small\item\em Gets the offset of a member of a struct. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{clib__macro_8h_a2a2533f9dbf64f590c2156da7671caae}{CLIB\+\_\+\+CONTAINER\+\_\+\+OF}}(ptr,  type,  member)
-\begin{DoxyCompactList}\small\item\em Gets the parent pointer to a struct from a pointer to its member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the parent pointer to a struct from a pointer to its member. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a4d77a0d28dd5f6a47124a503bed032de}{CLIB\+\_\+\+LOG}}(tag,  message)~puts("{}\mbox{[}"{} \#tag "{} LOG\mbox{]} "{} message);
+\begin{DoxyCompactList}\small\item\em Basic log function using puts, logs to stdout. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_aab942eaab68c964c5f47ca895ed3a501}{CLIB\+\_\+\+ERR}}(tag,  message)~fputs("{}\mbox{[}"{} \#tag "{} ERROR\mbox{]} "{} message "{}\textbackslash{}n"{}, stderr);
+\begin{DoxyCompactList}\small\item\em Basic log function using fputs, logs to stderr. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_a0aec87d9304718f846abedbe637af535}{CLIB\+\_\+\+FLOG}}(tag,  message)~puts("{}At "{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ "{}\+:"{} \mbox{\hyperlink{clib__macro_8h_a495ce77090620ce12f322ba04594c792}{CLIB\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) "{} \+:: "{} "{}\mbox{[}"{} \#tag "{} LOG\mbox{]} "{} message);
+\begin{DoxyCompactList}\small\item\em Logs with file name and line number included to stdout using puts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{clib__macro_8h_ac6b1f1e56837d996f006180ea225e28c}{CLIB\+\_\+\+FERR}}(tag,  message)~fputs("{}At "{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ "{}\+:"{} \mbox{\hyperlink{clib__macro_8h_a495ce77090620ce12f322ba04594c792}{CLIB\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) "{} \+:: "{} "{}\mbox{[}"{} \#tag "{} ERROR\mbox{]} "{} message "{}\textbackslash{}n"{}, stderr);
+\begin{DoxyCompactList}\small\item\em Logs with file name and line number included to stderr using fputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -59,7 +72,67 @@ Gets the length of a stack allocated array by performing sizeof(arr) / sizeof(ar
 
 Gets the parent pointer to a struct from a pointer to its member. 
 
-\Hypertarget{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}\label{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2} 
+\Hypertarget{clib__macro_8h_aab942eaab68c964c5f47ca895ed3a501}\label{clib__macro_8h_aab942eaab68c964c5f47ca895ed3a501} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_ERR@{CLIB\_ERR}}
+\index{CLIB\_ERR@{CLIB\_ERR}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_ERR}{CLIB\_ERR}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+ERR(\begin{DoxyParamCaption}\item[{}]{tag,  }\item[{}]{message }\end{DoxyParamCaption})~fputs("{}\mbox{[}"{} \#tag "{} ERROR\mbox{]} "{} message "{}\textbackslash{}n"{}, stderr);}
+
+
+
+Basic log function using fputs, logs to stderr. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{clib__macro_8h_aab942eaab68c964c5f47ca895ed3a501}{CLIB\_ERR}}(DEFAULT,\ \textcolor{stringliteral}{"{}Some\ message"{}})\ =>\ [DEFAULT\ \mbox{\hyperlink{clib__vector__base__type_8h_a8fe83ac76edc595f6b98cd4a4127aed5}{ERROR}}]\ Some\ message}
+
+\end{DoxyCode}
+ \Hypertarget{clib__macro_8h_ac6b1f1e56837d996f006180ea225e28c}\label{clib__macro_8h_ac6b1f1e56837d996f006180ea225e28c} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_FERR@{CLIB\_FERR}}
+\index{CLIB\_FERR@{CLIB\_FERR}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_FERR}{CLIB\_FERR}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+FERR(\begin{DoxyParamCaption}\item[{}]{tag,  }\item[{}]{message }\end{DoxyParamCaption})~fputs("{}At "{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ "{}\+:"{} \mbox{\hyperlink{clib__macro_8h_a495ce77090620ce12f322ba04594c792}{CLIB\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) "{} \+:: "{} "{}\mbox{[}"{} \#tag "{} ERROR\mbox{]} "{} message "{}\textbackslash{}n"{}, stderr);}
+
+
+
+Logs with file name and line number included to stderr using fputs. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{clib__macro_8h_ac6b1f1e56837d996f006180ea225e28c}{CLIB\_FERR}}(DEFAULT,\ \textcolor{stringliteral}{"{}Some\ message"{}})\ =>\ At\ main.c:7\ ::\ [DEFAULT\ \mbox{\hyperlink{clib__vector__base__type_8h_a8fe83ac76edc595f6b98cd4a4127aed5}{ERROR}}]\ Some\ message}
+
+\end{DoxyCode}
+ \Hypertarget{clib__macro_8h_a0aec87d9304718f846abedbe637af535}\label{clib__macro_8h_a0aec87d9304718f846abedbe637af535} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_FLOG@{CLIB\_FLOG}}
+\index{CLIB\_FLOG@{CLIB\_FLOG}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_FLOG}{CLIB\_FLOG}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+FLOG(\begin{DoxyParamCaption}\item[{}]{tag,  }\item[{}]{message }\end{DoxyParamCaption})~puts("{}At "{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ "{}\+:"{} \mbox{\hyperlink{clib__macro_8h_a495ce77090620ce12f322ba04594c792}{CLIB\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) "{} \+:: "{} "{}\mbox{[}"{} \#tag "{} LOG\mbox{]} "{} message);}
+
+
+
+Logs with file name and line number included to stdout using puts. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{clib__macro_8h_a0aec87d9304718f846abedbe637af535}{CLIB\_FLOG}}(DEFAULT,\ \textcolor{stringliteral}{"{}Some\ message"{}})\ =>\ At\ main.c:7\ ::\ [DEFAULT\ LOG]\ Some\ message}
+
+\end{DoxyCode}
+ \Hypertarget{clib__macro_8h_a4d77a0d28dd5f6a47124a503bed032de}\label{clib__macro_8h_a4d77a0d28dd5f6a47124a503bed032de} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_LOG@{CLIB\_LOG}}
+\index{CLIB\_LOG@{CLIB\_LOG}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_LOG}{CLIB\_LOG}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+LOG(\begin{DoxyParamCaption}\item[{}]{tag,  }\item[{}]{message }\end{DoxyParamCaption})~puts("{}\mbox{[}"{} \#tag "{} LOG\mbox{]} "{} message);}
+
+
+
+Basic log function using puts, logs to stdout. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{clib__macro_8h_a4d77a0d28dd5f6a47124a503bed032de}{CLIB\_LOG}}(DEFAULT,\ \textcolor{stringliteral}{"{}Some\ message"{}})\ =>\ [DEFAULT\ LOG]\ Some\ message}
+
+\end{DoxyCode}
+ \Hypertarget{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2}\label{clib__macro_8h_a0e4419a31fd2181eca2a2bc8efe3daf2} 
 \index{clib\_macro.h@{clib\_macro.h}!CLIB\_OFFSET\_OF@{CLIB\_OFFSET\_OF}}
 \index{CLIB\_OFFSET\_OF@{CLIB\_OFFSET\_OF}!clib\_macro.h@{clib\_macro.h}}
 \doxysubsubsection{\texorpdfstring{CLIB\_OFFSET\_OF}{CLIB\_OFFSET\_OF}}
@@ -68,4 +141,24 @@ Gets the parent pointer to a struct from a pointer to its member.
 
 
 Gets the offset of a member of a struct. 
+
+\Hypertarget{clib__macro_8h_ac860619f4e7b56f6c8e453e6b96bfef2}\label{clib__macro_8h_ac860619f4e7b56f6c8e453e6b96bfef2} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_STRINGIFY@{CLIB\_STRINGIFY}}
+\index{CLIB\_STRINGIFY@{CLIB\_STRINGIFY}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_STRINGIFY}{CLIB\_STRINGIFY}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+STRINGIFY(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+
+
+
+An alternative to \#X in macros, used mainly for inner macro expansion and stringification. 
+
+\Hypertarget{clib__macro_8h_a495ce77090620ce12f322ba04594c792}\label{clib__macro_8h_a495ce77090620ce12f322ba04594c792} 
+\index{clib\_macro.h@{clib\_macro.h}!CLIB\_TOSTRING@{CLIB\_TOSTRING}}
+\index{CLIB\_TOSTRING@{CLIB\_TOSTRING}!clib\_macro.h@{clib\_macro.h}}
+\doxysubsubsection{\texorpdfstring{CLIB\_TOSTRING}{CLIB\_TOSTRING}}
+{\footnotesize\ttfamily \#define CLIB\+\_\+\+TOSTRING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{clib__macro_8h_ac860619f4e7b56f6c8e453e6b96bfef2}{CLIB\+\_\+\+STRINGIFY}}(x)}
+
+
+
+Converts a macro constant to string using inner macro expansion. 
 
